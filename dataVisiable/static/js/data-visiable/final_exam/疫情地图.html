@@ -1,0 +1,6624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/roma.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/world.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+
+
+</head>
+<body>
+<style>
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 12px 16px;
+        transition: 0.3s;
+    }
+
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    .chart-container {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+    }
+</style>
+<div class="tab">
+    <button class="tablinks" onclick="showChart(event, 'e3228901c51b41dd899f3bac216beddc')">中国疫情数据地图</button>
+    <button class="tablinks" onclick="showChart(event, '3c4768a0fb4146d8a73a82a9ef7d6e34')">中国每日疫情数据折线图</button>
+    <button class="tablinks" onclick="showChart(event, '80ae9e7c1b6644758eb0fe6bc508fe8e')">国内省份死亡/治愈人数饼图</button>
+    <button class="tablinks" onclick="showChart(event, 'c2f28922e6c84f2eb31622445c8d001f')">海外疫情数据条形图</button>
+    <button class="tablinks" onclick="showChart(event, 'a2a64d51ec4c410588e323e86cad0244')">海外疫情数据地图</button>
+    <button class="tablinks" onclick="showChart(event, 'a2a95f50111341268f3f730b02b2c131')">海外疫情国家词云图</button>
+</div>
+
+<div class="box">
+    <div id="e3228901c51b41dd899f3bac216beddc" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+      var chart_e3228901c51b41dd899f3bac216beddc = echarts.init(
+        document.getElementById('e3228901c51b41dd899f3bac216beddc'), 'roma', {renderer: 'canvas'})
+      var option_e3228901c51b41dd899f3bac216beddc = {
+        'backgroundColor': '#eee',
+        'animation': true,
+        'animationThreshold': 2000,
+        'animationDuration': 1000,
+        'animationEasing': 'cubicOut',
+        'animationDelay': 0,
+        'animationDurationUpdate': 300,
+        'animationEasingUpdate': 'cubicOut',
+        'animationDelayUpdate': 0,
+        'series': [
+          {
+            'type': 'map',
+            'name': '\u786e\u8bca\u75c5\u4f8b',
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8
+            },
+            'mapType': 'china',
+            'data': [
+              {
+                'name': '\u4e0a\u6d77',
+                'value': 622
+              },
+              {
+                'name': '\u4e91\u5357',
+                'value': 184
+              },
+              {
+                'name': '\u5185\u8499\u53e4',
+                'value': 190
+              },
+              {
+                'name': '\u5317\u4eac',
+                'value': 590
+              },
+              {
+                'name': '\u53f0\u6e7e',
+                'value': 393
+              },
+              {
+                'name': '\u5409\u6797',
+                'value': 102
+              },
+              {
+                'name': '\u56db\u5ddd',
+                'value': 560
+              },
+              {
+                'name': '\u5929\u6d25',
+                'value': 185
+              },
+              {
+                'name': '\u5b81\u590f',
+                'value': 75
+              },
+              {
+                'name': '\u5b89\u5fbd',
+                'value': 991
+              },
+              {
+                'name': '\u5c71\u4e1c',
+                'value': 784
+              },
+              {
+                'name': '\u5c71\u897f',
+                'value': 186
+              },
+              {
+                'name': '\u5e7f\u4e1c',
+                'value': 1566
+              },
+              {
+                'name': '\u5e7f\u897f',
+                'value': 254
+              },
+              {
+                'name': '\u65b0\u7586',
+                'value': 76
+              },
+              {
+                'name': '\u6c5f\u82cf',
+                'value': 653
+              },
+              {
+                'name': '\u6c5f\u897f',
+                'value': 937
+              },
+              {
+                'name': '\u6cb3\u5317',
+                'value': 327
+              },
+              {
+                'name': '\u6cb3\u5357',
+                'value': 1276
+              },
+              {
+                'name': '\u6d59\u6c5f',
+                'value': 1268
+              },
+              {
+                'name': '\u6d77\u5357',
+                'value': 168
+              },
+              {
+                'name': '\u6e56\u5317',
+                'value': 67803
+              },
+              {
+                'name': '\u6e56\u5357',
+                'value': 1019
+              },
+              {
+                'name': '\u6fb3\u95e8',
+                'value': 45
+              },
+              {
+                'name': '\u7518\u8083',
+                'value': 139
+              },
+              {
+                'name': '\u798f\u5efa',
+                'value': 353
+              },
+              {
+                'name': '\u897f\u85cf',
+                'value': 1
+              },
+              {
+                'name': '\u8d35\u5dde',
+                'value': 147
+              },
+              {
+                'name': '\u8fbd\u5b81',
+                'value': 145
+              },
+              {
+                'name': '\u91cd\u5e86',
+                'value': 579
+              },
+              {
+                'name': '\u9655\u897f',
+                'value': 256
+              },
+              {
+                'name': '\u9752\u6d77',
+                'value': 18
+              },
+              {
+                'name': '\u9999\u6e2f',
+                'value': 1012
+              },
+              {
+                'name': '\u9ed1\u9f99\u6c5f',
+                'value': 841
+              }
+            ],
+            'roam': true,
+            'zoom': 1,
+            'showLegendSymbol': false,
+            'emphasis': {},
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            },
+            'textStyle_opts': {
+              'fontSize': 12
+            }
+          }
+        ],
+        'legend': [
+          {
+            'data': [
+              '\u786e\u8bca\u75c5\u4f8b'
+            ],
+            'selected': {
+              '\u786e\u8bca\u75c5\u4f8b': true
+            },
+            'show': false,
+            'padding': 5,
+            'itemGap': 10,
+            'itemWidth': 25,
+            'itemHeight': 14
+          }
+        ],
+        'tooltip': {
+          'show': true,
+          'trigger': 'item',
+          'triggerOn': 'mousemove|click',
+          'axisPointer': {
+            'type': 'line'
+          },
+          'textStyle': {
+            'fontSize': 14
+          },
+          'borderWidth': 0
+        },
+        'title': [
+          {
+            'text': '\u5168\u56fd\u5404\u7701\u786e\u8bca\u6848\u4f8b',
+            'left': 'center',
+            'padding': 5,
+            'itemGap': 10
+          }
+        ],
+        'visualMap': {
+          'show': true,
+          'type': 'piecewise',
+          'min': 0,
+          'max': 100,
+          'inRange': {
+            'color': [
+              '#50a3ba',
+              '#eac763',
+              '#d94e5d'
+            ]
+          },
+          'calculable': true,
+          'inverse': false,
+          'splitNumber': 5,
+          'orient': 'vertical',
+          'showLabel': true,
+          'itemWidth': 20,
+          'itemHeight': 14,
+          'borderWidth': 0,
+          'pieces': [
+            {
+              'min': 10000,
+              'label': '>=10000\u4eba',
+              'color': '#BC8F8F'
+            },
+            {
+              'min': 1000,
+              'max': 9999,
+              'label': '1000-9999\u4eba',
+              'color': '#FFDEAD'
+            },
+            {
+              'min': 500,
+              'max': 999,
+              'label': '500-999\u4eba',
+              'color': '#FFA500'
+            },
+            {
+              'min': 100,
+              'max': 499,
+              'label': '100-499\u4eba',
+              'color': '#B22222'
+            },
+            {
+              'min': 10,
+              'max': 99,
+              'label': '10-99\u4eba',
+              'color': '#D2691E'
+            },
+            {
+              'min': 1,
+              'max': 9,
+              'label': '1-9\u4eba',
+              'color': '#E9967A'
+            }
+          ]
+        }
+      }
+      chart_e3228901c51b41dd899f3bac216beddc.setOption(option_e3228901c51b41dd899f3bac216beddc)
+    </script>
+    <div id="3c4768a0fb4146d8a73a82a9ef7d6e34" class="chart-container" style="width:1000px; height:500px;"></div>
+    <script>
+      var chart_3c4768a0fb4146d8a73a82a9ef7d6e34 = echarts.init(
+        document.getElementById('3c4768a0fb4146d8a73a82a9ef7d6e34'), 'white', {renderer: 'canvas'})
+      var option_3c4768a0fb4146d8a73a82a9ef7d6e34 = {
+        'animation': true,
+        'animationThreshold': 2000,
+        'animationDuration': 1000,
+        'animationEasing': 'cubicOut',
+        'animationDelay': 0,
+        'animationDurationUpdate': 300,
+        'animationEasingUpdate': 'cubicOut',
+        'animationDelayUpdate': 0,
+        'color': [
+          '#c23531',
+          '#2f4554',
+          '#61a0a8',
+          '#d48265',
+          '#749f83',
+          '#ca8622',
+          '#bda29a',
+          '#6e7074',
+          '#546570',
+          '#c4ccd3',
+          '#f05b72',
+          '#ef5b9c',
+          '#f47920',
+          '#905a3d',
+          '#fab27b',
+          '#2a5caa',
+          '#444693',
+          '#726930',
+          '#b2d235',
+          '#6d8346',
+          '#ac6767',
+          '#1d953f',
+          '#6950a1',
+          '#918597'
+        ],
+        'series': [
+          {
+            'type': 'line',
+            'name': '\u73b0\u786e\u8bca',
+            'connectNulls': false,
+            'yAxisIndex': 0,
+            'symbolSize': 3,
+            'showSymbol': true,
+            'smooth': false,
+            'step': false,
+            'data': [
+              [
+                '1.13',
+                0
+              ],
+              [
+                '1.14',
+                0
+              ],
+              [
+                '1.15',
+                0
+              ],
+              [
+                '1.16',
+                0
+              ],
+              [
+                '1.17',
+                0
+              ],
+              [
+                '1.18',
+                0
+              ],
+              [
+                '1.19',
+                0
+              ],
+              [
+                '1.2',
+                291
+              ],
+              [
+                '1.21',
+                431
+              ],
+              [
+                '1.22',
+                557
+              ],
+              [
+                '1.23',
+                776
+              ],
+              [
+                '1.24',
+                1218
+              ],
+              [
+                '1.25',
+                1880
+              ],
+              [
+                '1.26',
+                2630
+              ],
+              [
+                '1.27',
+                4369
+              ],
+              [
+                '1.28',
+                5762
+              ],
+              [
+                '1.29',
+                7442
+              ],
+              [
+                '1.3',
+                9336
+              ],
+              [
+                '1.31',
+                11319
+              ],
+              [
+                '2.01',
+                13779
+              ],
+              [
+                '2.02',
+                16402
+              ],
+              [
+                '2.03',
+                19414
+              ],
+              [
+                '2.04',
+                22980
+              ],
+              [
+                '2.05',
+                26343
+              ],
+              [
+                '2.06',
+                29032
+              ],
+              [
+                '2.07',
+                31823
+              ],
+              [
+                '2.08',
+                33788
+              ],
+              [
+                '2.09',
+                36043
+              ],
+              [
+                '2.1',
+                37693
+              ],
+              [
+                '2.11',
+                38874
+              ],
+              [
+                '2.12',
+                52599
+              ],
+              [
+                '2.13',
+                55823
+              ],
+              [
+                '2.14',
+                56951
+              ],
+              [
+                '2.15',
+                57493
+              ],
+              [
+                '2.16',
+                58010
+              ],
+              [
+                '2.17',
+                58097
+              ],
+              [
+                '2.18',
+                57886
+              ],
+              [
+                '2.19',
+                56386
+              ],
+              [
+                '2.2',
+                55051
+              ],
+              [
+                '2.21',
+                53371
+              ],
+              [
+                '2.22',
+                51689
+              ],
+              [
+                '2.23',
+                49910
+              ],
+              [
+                '2.24',
+                47760
+              ],
+              [
+                '2.25',
+                45697
+              ],
+              [
+                '2.26',
+                43352
+              ],
+              [
+                '2.27',
+                40011
+              ],
+              [
+                '2.28',
+                37502
+              ],
+              [
+                '2.29',
+                35420
+              ],
+              [
+                '3.01',
+                32741
+              ],
+              [
+                '3.02',
+                30096
+              ],
+              [
+                '3.03',
+                27524
+              ],
+              [
+                '3.04',
+                25441
+              ],
+              [
+                '3.05',
+                23872
+              ],
+              [
+                '3.06',
+                22263
+              ],
+              [
+                '3.07',
+                20616
+              ],
+              [
+                '3.08',
+                19097
+              ],
+              [
+                '3.09',
+                17802
+              ],
+              [
+                '3.1',
+                16226
+              ],
+              [
+                '3.11',
+                14920
+              ],
+              [
+                '3.12',
+                13607
+              ],
+              [
+                '3.13',
+                12178
+              ],
+              [
+                '3.14',
+                10822
+              ],
+              [
+                '3.15',
+                9996
+              ],
+              [
+                '3.16',
+                9086
+              ],
+              [
+                '3.17',
+                8184
+              ],
+              [
+                '3.18',
+                7438
+              ],
+              [
+                '3.19',
+                6763
+              ],
+              [
+                '3.2',
+                6013
+              ],
+              [
+                '3.21',
+                5849
+              ],
+              [
+                '3.22',
+                5483
+              ],
+              [
+                '3.23',
+                5165
+              ],
+              [
+                '3.24',
+                4768
+              ],
+              [
+                '3.25',
+                4471
+              ],
+              [
+                '3.26',
+                4043
+              ],
+              [
+                '3.27',
+                3790
+              ],
+              [
+                '3.28',
+                3435
+              ],
+              [
+                '3.29',
+                3199
+              ],
+              [
+                '3.3',
+                3006
+              ],
+              [
+                '3.31',
+                2895
+              ],
+              [
+                '4.01',
+                2787
+              ],
+              [
+                '4.02',
+                2686
+              ],
+              [
+                '4.03',
+                2556
+              ],
+              [
+                '4.04',
+                2382
+              ],
+              [
+                '4.05',
+                2317
+              ],
+              [
+                '4.06',
+                2281
+              ],
+              [
+                '4.07',
+                2229
+              ],
+              [
+                '4.08',
+                2194
+              ],
+              [
+                '4.09',
+                2122
+              ],
+              [
+                '4.1',
+                2085
+              ],
+              [
+                '4.11',
+                2113
+              ],
+              [
+                '4.12',
+                2106
+              ],
+              [
+                '4.13',
+                2083
+              ],
+              [
+                '4.14',
+                2004
+              ]
+            ],
+            'hoverAnimation': true,
+            'label': {
+              'show': false,
+              'position': 'top',
+              'margin': 8
+            },
+            'lineStyle': {
+              'show': true,
+              'width': 1,
+              'opacity': 1,
+              'curveness': 0,
+              'type': 'dashed',
+              'color': 'blue'
+            },
+            'areaStyle': {
+              'opacity': 0
+            },
+            'itemStyle': {
+              'color': 'blue'
+            },
+            'zlevel': 0,
+            'z': 0,
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            }
+          },
+          {
+            'type': 'line',
+            'name': '\u786e\u8bca',
+            'connectNulls': false,
+            'yAxisIndex': 0,
+            'symbol': 'circle',
+            'symbolSize': 3,
+            'showSymbol': true,
+            'smooth': false,
+            'step': false,
+            'data': [
+              [
+                '1.13',
+                41
+              ],
+              [
+                '1.14',
+                41
+              ],
+              [
+                '1.15',
+                41
+              ],
+              [
+                '1.16',
+                45
+              ],
+              [
+                '1.17',
+                62
+              ],
+              [
+                '1.18',
+                198
+              ],
+              [
+                '1.19',
+                275
+              ],
+              [
+                '1.2',
+                291
+              ],
+              [
+                '1.21',
+                440
+              ],
+              [
+                '1.22',
+                574
+              ],
+              [
+                '1.23',
+                835
+              ],
+              [
+                '1.24',
+                1297
+              ],
+              [
+                '1.25',
+                1985
+              ],
+              [
+                '1.26',
+                2761
+              ],
+              [
+                '1.27',
+                4535
+              ],
+              [
+                '1.28',
+                5997
+              ],
+              [
+                '1.29',
+                7736
+              ],
+              [
+                '1.3',
+                9720
+              ],
+              [
+                '1.31',
+                11821
+              ],
+              [
+                '2.01',
+                14411
+              ],
+              [
+                '2.02',
+                17238
+              ],
+              [
+                '2.03',
+                20471
+              ],
+              [
+                '2.04',
+                24363
+              ],
+              [
+                '2.05',
+                28060
+              ],
+              [
+                '2.06',
+                31211
+              ],
+              [
+                '2.07',
+                34598
+              ],
+              [
+                '2.08',
+                37251
+              ],
+              [
+                '2.09',
+                40235
+              ],
+              [
+                '2.1',
+                42708
+              ],
+              [
+                '2.11',
+                44730
+              ],
+              [
+                '2.12',
+                59882
+              ],
+              [
+                '2.13',
+                63932
+              ],
+              [
+                '2.14',
+                66576
+              ],
+              [
+                '2.15',
+                68584
+              ],
+              [
+                '2.16',
+                70635
+              ],
+              [
+                '2.17',
+                72528
+              ],
+              [
+                '2.18',
+                74279
+              ],
+              [
+                '2.19',
+                75002
+              ],
+              [
+                '2.2',
+                75993
+              ],
+              [
+                '2.21',
+                76392
+              ],
+              [
+                '2.22',
+                77041
+              ],
+              [
+                '2.23',
+                77262
+              ],
+              [
+                '2.24',
+                77779
+              ],
+              [
+                '2.25',
+                78190
+              ],
+              [
+                '2.26',
+                78630
+              ],
+              [
+                '2.27',
+                78959
+              ],
+              [
+                '2.28',
+                79389
+              ],
+              [
+                '2.29',
+                79968
+              ],
+              [
+                '3.01',
+                80174
+              ],
+              [
+                '3.02',
+                80302
+              ],
+              [
+                '3.03',
+                80422
+              ],
+              [
+                '3.04',
+                80565
+              ],
+              [
+                '3.05',
+                80710
+              ],
+              [
+                '3.06',
+                80813
+              ],
+              [
+                '3.07',
+                80859
+              ],
+              [
+                '3.08',
+                80904
+              ],
+              [
+                '3.09',
+                80924
+              ],
+              [
+                '3.1',
+                80955
+              ],
+              [
+                '3.11',
+                80992
+              ],
+              [
+                '3.12',
+                81003
+              ],
+              [
+                '3.13',
+                81021
+              ],
+              [
+                '3.14',
+                81048
+              ],
+              [
+                '3.15',
+                81077
+              ],
+              [
+                '3.16',
+                81116
+              ],
+              [
+                '3.17',
+                81151
+              ],
+              [
+                '3.18',
+                81235
+              ],
+              [
+                '3.19',
+                81300
+              ],
+              [
+                '3.2',
+                81416
+              ],
+              [
+                '3.21',
+                81498
+              ],
+              [
+                '3.22',
+                81600
+              ],
+              [
+                '3.23',
+                81747
+              ],
+              [
+                '3.24',
+                81846
+              ],
+              [
+                '3.25',
+                81960
+              ],
+              [
+                '3.26',
+                82078
+              ],
+              [
+                '3.27',
+                82213
+              ],
+              [
+                '3.28',
+                82341
+              ],
+              [
+                '3.29',
+                82447
+              ],
+              [
+                '3.3',
+                82545
+              ],
+              [
+                '3.31',
+                82631
+              ],
+              [
+                '4.01',
+                82724
+              ],
+              [
+                '4.02',
+                82802
+              ],
+              [
+                '4.03',
+                82861
+              ],
+              [
+                '4.04',
+                82930
+              ],
+              [
+                '4.05',
+                83005
+              ],
+              [
+                '4.06',
+                83071
+              ],
+              [
+                '4.07',
+                83157
+              ],
+              [
+                '4.08',
+                83249
+              ],
+              [
+                '4.09',
+                83305
+              ],
+              [
+                '4.1',
+                83369
+              ],
+              [
+                '4.11',
+                83482
+              ],
+              [
+                '4.12',
+                83602
+              ],
+              [
+                '4.13',
+                83696
+              ],
+              [
+                '4.14',
+                83745
+              ]
+            ],
+            'hoverAnimation': true,
+            'label': {
+              'show': false,
+              'position': 'top',
+              'margin': 8
+            },
+            'lineStyle': {
+              'show': true,
+              'width': 1,
+              'opacity': 1,
+              'curveness': 0,
+              'type': 'dashed',
+              'color': 'red'
+            },
+            'areaStyle': {
+              'opacity': 0
+            },
+            'itemStyle': {
+              'color': 'red'
+            },
+            'zlevel': 0,
+            'z': 0,
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            }
+          },
+          {
+            'type': 'line',
+            'name': '\u6b7b\u4ea1',
+            'connectNulls': false,
+            'yAxisIndex': 1,
+            'symbol': 'diamond',
+            'symbolSize': 5,
+            'showSymbol': true,
+            'smooth': false,
+            'step': false,
+            'data': [
+              [
+                '1.13',
+                1
+              ],
+              [
+                '1.14',
+                1
+              ],
+              [
+                '1.15',
+                2
+              ],
+              [
+                '1.16',
+                2
+              ],
+              [
+                '1.17',
+                2
+              ],
+              [
+                '1.18',
+                3
+              ],
+              [
+                '1.19',
+                4
+              ],
+              [
+                '1.2',
+                6
+              ],
+              [
+                '1.21',
+                9
+              ],
+              [
+                '1.22',
+                17
+              ],
+              [
+                '1.23',
+                25
+              ],
+              [
+                '1.24',
+                41
+              ],
+              [
+                '1.25',
+                56
+              ],
+              [
+                '1.26',
+                80
+              ],
+              [
+                '1.27',
+                106
+              ],
+              [
+                '1.28',
+                132
+              ],
+              [
+                '1.29',
+                170
+              ],
+              [
+                '1.3',
+                213
+              ],
+              [
+                '1.31',
+                259
+              ],
+              [
+                '2.01',
+                304
+              ],
+              [
+                '2.02',
+                361
+              ],
+              [
+                '2.03',
+                425
+              ],
+              [
+                '2.04',
+                491
+              ],
+              [
+                '2.05',
+                564
+              ],
+              [
+                '2.06',
+                637
+              ],
+              [
+                '2.07',
+                723
+              ],
+              [
+                '2.08',
+                812
+              ],
+              [
+                '2.09',
+                909
+              ],
+              [
+                '2.1',
+                1017
+              ],
+              [
+                '2.11',
+                1114
+              ],
+              [
+                '2.12',
+                1368
+              ],
+              [
+                '2.13',
+                1381
+              ],
+              [
+                '2.14',
+                1524
+              ],
+              [
+                '2.15',
+                1666
+              ],
+              [
+                '2.16',
+                1772
+              ],
+              [
+                '2.17',
+                1870
+              ],
+              [
+                '2.18',
+                2006
+              ],
+              [
+                '2.19',
+                2121
+              ],
+              [
+                '2.2',
+                2239
+              ],
+              [
+                '2.21',
+                2348
+              ],
+              [
+                '2.22',
+                2445
+              ],
+              [
+                '2.23',
+                2595
+              ],
+              [
+                '2.24',
+                2666
+              ],
+              [
+                '2.25',
+                2718
+              ],
+              [
+                '2.26',
+                2747
+              ],
+              [
+                '2.27',
+                2791
+              ],
+              [
+                '2.28',
+                2838
+              ],
+              [
+                '2.29',
+                2873
+              ],
+              [
+                '3.01',
+                2915
+              ],
+              [
+                '3.02',
+                2946
+              ],
+              [
+                '3.03',
+                2984
+              ],
+              [
+                '3.04',
+                3015
+              ],
+              [
+                '3.05',
+                3045
+              ],
+              [
+                '3.06',
+                3073
+              ],
+              [
+                '3.07',
+                3100
+              ],
+              [
+                '3.08',
+                3123
+              ],
+              [
+                '3.09',
+                3140
+              ],
+              [
+                '3.1',
+                3162
+              ],
+              [
+                '3.11',
+                3173
+              ],
+              [
+                '3.12',
+                3180
+              ],
+              [
+                '3.13',
+                3194
+              ],
+              [
+                '3.14',
+                3204
+              ],
+              [
+                '3.15',
+                3218
+              ],
+              [
+                '3.16',
+                3231
+              ],
+              [
+                '3.17',
+                3242
+              ],
+              [
+                '3.18',
+                3250
+              ],
+              [
+                '3.19',
+                3253
+              ],
+              [
+                '3.2',
+                3261
+              ],
+              [
+                '3.21',
+                3267
+              ],
+              [
+                '3.22',
+                3276
+              ],
+              [
+                '3.23',
+                3283
+              ],
+              [
+                '3.24',
+                3287
+              ],
+              [
+                '3.25',
+                3293
+              ],
+              [
+                '3.26',
+                3298
+              ],
+              [
+                '3.27',
+                3301
+              ],
+              [
+                '3.28',
+                3306
+              ],
+              [
+                '3.29',
+                3311
+              ],
+              [
+                '3.3',
+                3314
+              ],
+              [
+                '3.31',
+                3321
+              ],
+              [
+                '4.01',
+                3327
+              ],
+              [
+                '4.02',
+                3331
+              ],
+              [
+                '4.03',
+                3335
+              ],
+              [
+                '4.04',
+                3338
+              ],
+              [
+                '4.05',
+                3340
+              ],
+              [
+                '4.06',
+                3340
+              ],
+              [
+                '4.07',
+                3342
+              ],
+              [
+                '4.08',
+                3344
+              ],
+              [
+                '4.09',
+                3345
+              ],
+              [
+                '4.1',
+                3349
+              ],
+              [
+                '4.11',
+                3349
+              ],
+              [
+                '4.12',
+                3351
+              ],
+              [
+                '4.13',
+                3351
+              ],
+              [
+                '4.14',
+                3352
+              ]
+            ],
+            'hoverAnimation': true,
+            'label': {
+              'show': false,
+              'position': 'top',
+              'margin': 8
+            },
+            'lineStyle': {
+              'show': true,
+              'width': 1,
+              'opacity': 1,
+              'curveness': 0,
+              'type': 'dashed',
+              'color': 'lightsalmon'
+            },
+            'areaStyle': {
+              'opacity': 0
+            },
+            'itemStyle': {
+              'color': 'lightsalmon'
+            },
+            'zlevel': 0,
+            'z': 0,
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            }
+          },
+          {
+            'type': 'line',
+            'name': '\u6cbb\u6108',
+            'connectNulls': false,
+            'yAxisIndex': 1,
+            'symbol': 'triangle',
+            'symbolSize': 5,
+            'showSymbol': true,
+            'smooth': false,
+            'step': false,
+            'data': [
+              [
+                '1.13',
+                0
+              ],
+              [
+                '1.14',
+                0
+              ],
+              [
+                '1.15',
+                5
+              ],
+              [
+                '1.16',
+                8
+              ],
+              [
+                '1.17',
+                12
+              ],
+              [
+                '1.18',
+                17
+              ],
+              [
+                '1.19',
+                18
+              ],
+              [
+                '1.2',
+                25
+              ],
+              [
+                '1.21',
+                25
+              ],
+              [
+                '1.22',
+                25
+              ],
+              [
+                '1.23',
+                34
+              ],
+              [
+                '1.24',
+                38
+              ],
+              [
+                '1.25',
+                49
+              ],
+              [
+                '1.26',
+                51
+              ],
+              [
+                '1.27',
+                60
+              ],
+              [
+                '1.28',
+                103
+              ],
+              [
+                '1.29',
+                124
+              ],
+              [
+                '1.3',
+                171
+              ],
+              [
+                '1.31',
+                243
+              ],
+              [
+                '2.01',
+                328
+              ],
+              [
+                '2.02',
+                475
+              ],
+              [
+                '2.03',
+                632
+              ],
+              [
+                '2.04',
+                892
+              ],
+              [
+                '2.05',
+                1153
+              ],
+              [
+                '2.06',
+                1542
+              ],
+              [
+                '2.07',
+                2052
+              ],
+              [
+                '2.08',
+                2651
+              ],
+              [
+                '2.09',
+                3283
+              ],
+              [
+                '2.1',
+                3998
+              ],
+              [
+                '2.11',
+                4742
+              ],
+              [
+                '2.12',
+                5915
+              ],
+              [
+                '2.13',
+                6728
+              ],
+              [
+                '2.14',
+                8101
+              ],
+              [
+                '2.15',
+                9425
+              ],
+              [
+                '2.16',
+                10853
+              ],
+              [
+                '2.17',
+                12561
+              ],
+              [
+                '2.18',
+                14387
+              ],
+              [
+                '2.19',
+                16157
+              ],
+              [
+                '2.2',
+                18266
+              ],
+              [
+                '2.21',
+                20673
+              ],
+              [
+                '2.22',
+                22907
+              ],
+              [
+                '2.23',
+                24757
+              ],
+              [
+                '2.24',
+                27353
+              ],
+              [
+                '2.25',
+                29775
+              ],
+              [
+                '2.26',
+                32531
+              ],
+              [
+                '2.27',
+                36157
+              ],
+              [
+                '2.28',
+                39049
+              ],
+              [
+                '2.29',
+                41675
+              ],
+              [
+                '3.01',
+                44518
+              ],
+              [
+                '3.02',
+                47260
+              ],
+              [
+                '3.03',
+                49914
+              ],
+              [
+                '3.04',
+                52109
+              ],
+              [
+                '3.05',
+                53793
+              ],
+              [
+                '3.06',
+                55477
+              ],
+              [
+                '3.07',
+                57143
+              ],
+              [
+                '3.08',
+                58684
+              ],
+              [
+                '3.09',
+                59982
+              ],
+              [
+                '3.1',
+                61567
+              ],
+              [
+                '3.11',
+                62887
+              ],
+              [
+                '3.12',
+                64216
+              ],
+              [
+                '3.13',
+                65649
+              ],
+              [
+                '3.14',
+                67022
+              ],
+              [
+                '3.15',
+                67863
+              ],
+              [
+                '3.16',
+                68799
+              ],
+              [
+                '3.17',
+                69725
+              ],
+              [
+                '3.18',
+                70547
+              ],
+              [
+                '3.19',
+                71284
+              ],
+              [
+                '3.2',
+                71876
+              ],
+              [
+                '3.21',
+                72382
+              ],
+              [
+                '3.22',
+                72841
+              ],
+              [
+                '3.23',
+                73299
+              ],
+              [
+                '3.24',
+                73791
+              ],
+              [
+                '3.25',
+                74196
+              ],
+              [
+                '3.26',
+                74737
+              ],
+              [
+                '3.27',
+                75122
+              ],
+              [
+                '3.28',
+                75600
+              ],
+              [
+                '3.29',
+                75937
+              ],
+              [
+                '3.3',
+                76225
+              ],
+              [
+                '3.31',
+                76415
+              ],
+              [
+                '4.01',
+                76610
+              ],
+              [
+                '4.02',
+                76785
+              ],
+              [
+                '4.03',
+                76984
+              ],
+              [
+                '4.04',
+                77210
+              ],
+              [
+                '4.05',
+                77348
+              ],
+              [
+                '4.06',
+                77450
+              ],
+              [
+                '4.07',
+                77586
+              ],
+              [
+                '4.08',
+                77711
+              ],
+              [
+                '4.09',
+                77838
+              ],
+              [
+                '4.1',
+                77935
+              ],
+              [
+                '4.11',
+                78020
+              ],
+              [
+                '4.12',
+                78145
+              ],
+              [
+                '4.13',
+                78262
+              ],
+              [
+                '4.14',
+                78389
+              ]
+            ],
+            'hoverAnimation': true,
+            'label': {
+              'show': false,
+              'position': 'top',
+              'margin': 8
+            },
+            'lineStyle': {
+              'show': true,
+              'width': 1,
+              'opacity': 1,
+              'curveness': 0,
+              'type': 'dashed',
+              'color': 'green'
+            },
+            'areaStyle': {
+              'opacity': 0
+            },
+            'itemStyle': {
+              'color': 'green'
+            },
+            'zlevel': 0,
+            'z': 0,
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            }
+          }
+        ],
+        'legend': [
+          {
+            'data': [
+              '\u73b0\u786e\u8bca',
+              '\u786e\u8bca',
+              '\u6b7b\u4ea1',
+              '\u6cbb\u6108'
+            ],
+            'selected': {
+              '\u73b0\u786e\u8bca': true,
+              '\u786e\u8bca': true,
+              '\u6b7b\u4ea1': true,
+              '\u6cbb\u6108': true
+            },
+            'show': true,
+            'padding': 5,
+            'itemGap': 10,
+            'itemWidth': 25,
+            'itemHeight': 14
+          }
+        ],
+        'tooltip': {
+          'show': true,
+          'trigger': 'axis',
+          'triggerOn': 'mousemove|click',
+          'axisPointer': {
+            'type': 'line'
+          },
+          'textStyle': {
+            'fontSize': 14
+          },
+          'borderWidth': 0
+        },
+        'xAxis': [
+          {
+            'name': '\u65e5\u671f',
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'nameRotate': -30,
+            'gridIndex': 0,
+            'inverse': false,
+            'offset': 0,
+            'splitNumber': 5,
+            'minInterval': 0,
+            'splitLine': {
+              'show': false,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            },
+            'data': [
+              '1.13',
+              '1.14',
+              '1.15',
+              '1.16',
+              '1.17',
+              '1.18',
+              '1.19',
+              '1.2',
+              '1.21',
+              '1.22',
+              '1.23',
+              '1.24',
+              '1.25',
+              '1.26',
+              '1.27',
+              '1.28',
+              '1.29',
+              '1.3',
+              '1.31',
+              '2.01',
+              '2.02',
+              '2.03',
+              '2.04',
+              '2.05',
+              '2.06',
+              '2.07',
+              '2.08',
+              '2.09',
+              '2.1',
+              '2.11',
+              '2.12',
+              '2.13',
+              '2.14',
+              '2.15',
+              '2.16',
+              '2.17',
+              '2.18',
+              '2.19',
+              '2.2',
+              '2.21',
+              '2.22',
+              '2.23',
+              '2.24',
+              '2.25',
+              '2.26',
+              '2.27',
+              '2.28',
+              '2.29',
+              '3.01',
+              '3.02',
+              '3.03',
+              '3.04',
+              '3.05',
+              '3.06',
+              '3.07',
+              '3.08',
+              '3.09',
+              '3.1',
+              '3.11',
+              '3.12',
+              '3.13',
+              '3.14',
+              '3.15',
+              '3.16',
+              '3.17',
+              '3.18',
+              '3.19',
+              '3.2',
+              '3.21',
+              '3.22',
+              '3.23',
+              '3.24',
+              '3.25',
+              '3.26',
+              '3.27',
+              '3.28',
+              '3.29',
+              '3.3',
+              '3.31',
+              '4.01',
+              '4.02',
+              '4.03',
+              '4.04',
+              '4.05',
+              '4.06',
+              '4.07',
+              '4.08',
+              '4.09',
+              '4.1',
+              '4.11',
+              '4.12',
+              '4.13',
+              '4.14'
+            ]
+          }
+        ],
+        'yAxis': [
+          {
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'gridIndex': 0,
+            'axisTick': {
+              'show': true,
+              'alignWithLabel': false,
+              'inside': false
+            },
+            'inverse': false,
+            'offset': 0,
+            'splitNumber': 5,
+            'minInterval': 0,
+            'splitLine': {
+              'show': true,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            }
+          },
+          {
+            'type': 'value',
+            'name': '\u6b7b\u4ea1/\u6cbb\u6108',
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'gridIndex': 0,
+            'inverse': false,
+            'position': 'right',
+            'offset': 0,
+            'splitNumber': 5,
+            'minInterval': 0,
+            'splitLine': {
+              'show': false,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            }
+          },
+          {
+            'type': 'value',
+            'name': '\u73b0\u786e\u8bca/\u7d2f\u8ba1\u786e\u8bca',
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'gridIndex': 0,
+            'inverse': false,
+            'position': 'left',
+            'offset': 0,
+            'splitNumber': 10,
+            'min': 2000,
+            'minInterval': 0,
+            'splitLine': {
+              'show': false,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            }
+          }
+        ],
+        'title': [
+          {
+            'text': '\u4e2d\u56fd\u6bcf\u65e5\u75ab\u60c5\u6570\u636e',
+            'padding': 5,
+            'itemGap': 10
+          }
+        ],
+        'dataZoom': {
+          'show': true,
+          'type': 'slider',
+          'realtime': true,
+          'start': 20,
+          'end': 80,
+          'orient': 'horizontal',
+          'zoomLock': false
+        }
+      }
+      chart_3c4768a0fb4146d8a73a82a9ef7d6e34.setOption(option_3c4768a0fb4146d8a73a82a9ef7d6e34)
+    </script>
+    <div id="80ae9e7c1b6644758eb0fe6bc508fe8e" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+      var chart_80ae9e7c1b6644758eb0fe6bc508fe8e = echarts.init(
+        document.getElementById('80ae9e7c1b6644758eb0fe6bc508fe8e'), 'white', {renderer: 'canvas'})
+      var option_80ae9e7c1b6644758eb0fe6bc508fe8e = {
+        'animation': true,
+        'animationThreshold': 2000,
+        'animationDuration': 1000,
+        'animationEasing': 'cubicOut',
+        'animationDelay': 0,
+        'animationDurationUpdate': 300,
+        'animationEasingUpdate': 'cubicOut',
+        'animationDelayUpdate': 0,
+        'color': [
+          '#c23531',
+          '#2f4554',
+          '#61a0a8',
+          '#d48265',
+          '#749f83',
+          '#ca8622',
+          '#bda29a',
+          '#6e7074',
+          '#546570',
+          '#c4ccd3',
+          '#f05b72',
+          '#ef5b9c',
+          '#f47920',
+          '#905a3d',
+          '#fab27b',
+          '#2a5caa',
+          '#444693',
+          '#726930',
+          '#b2d235',
+          '#6d8346',
+          '#ac6767',
+          '#1d953f',
+          '#6950a1',
+          '#918597'
+        ],
+        'series': [
+          {
+            'type': 'pie',
+            'name': '\u6b7b\u4ea1\u4eba\u6570',
+            'clockwise': true,
+            'data': [
+              {
+                'name': '\u4e0a\u6d77',
+                'value': 7
+              },
+              {
+                'name': '\u4e91\u5357',
+                'value': 2
+              },
+              {
+                'name': '\u5185\u8499\u53e4',
+                'value': 1
+              },
+              {
+                'name': '\u5317\u4eac',
+                'value': 8
+              },
+              {
+                'name': '\u53f0\u6e7e',
+                'value': 6
+              },
+              {
+                'name': '\u5409\u6797',
+                'value': 1
+              },
+              {
+                'name': '\u56db\u5ddd',
+                'value': 3
+              },
+              {
+                'name': '\u5929\u6d25',
+                'value': 3
+              },
+              {
+                'name': '\u5b81\u590f',
+                'value': 0
+              },
+              {
+                'name': '\u5b89\u5fbd',
+                'value': 6
+              },
+              {
+                'name': '\u5c71\u4e1c',
+                'value': 7
+              },
+              {
+                'name': '\u5c71\u897f',
+                'value': 0
+              },
+              {
+                'name': '\u5e7f\u4e1c',
+                'value': 8
+              },
+              {
+                'name': '\u5e7f\u897f',
+                'value': 2
+              },
+              {
+                'name': '\u65b0\u7586',
+                'value': 3
+              },
+              {
+                'name': '\u6c5f\u82cf',
+                'value': 0
+              },
+              {
+                'name': '\u6c5f\u897f',
+                'value': 1
+              },
+              {
+                'name': '\u6cb3\u5317',
+                'value': 6
+              },
+              {
+                'name': '\u6cb3\u5357',
+                'value': 22
+              },
+              {
+                'name': '\u6d59\u6c5f',
+                'value': 1
+              },
+              {
+                'name': '\u6d77\u5357',
+                'value': 6
+              },
+              {
+                'name': '\u6e56\u5317',
+                'value': 3222
+              },
+              {
+                'name': '\u6e56\u5357',
+                'value': 4
+              },
+              {
+                'name': '\u6fb3\u95e8',
+                'value': 0
+              },
+              {
+                'name': '\u7518\u8083',
+                'value': 2
+              },
+              {
+                'name': '\u798f\u5efa',
+                'value': 1
+              },
+              {
+                'name': '\u897f\u85cf',
+                'value': 0
+              },
+              {
+                'name': '\u8d35\u5dde',
+                'value': 2
+              },
+              {
+                'name': '\u8fbd\u5b81',
+                'value': 2
+              },
+              {
+                'name': '\u91cd\u5e86',
+                'value': 6
+              },
+              {
+                'name': '\u9655\u897f',
+                'value': 3
+              },
+              {
+                'name': '\u9752\u6d77',
+                'value': 0
+              },
+              {
+                'name': '\u9999\u6e2f',
+                'value': 4
+              },
+              {
+                'name': '\u9ed1\u9f99\u6c5f',
+                'value': 13
+              }
+            ],
+            'radius': [
+              '25%',
+              '50%'
+            ],
+            'center': [
+              '20%',
+              '70%'
+            ],
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8,
+              'formatter': '{b}: {c}'
+            },
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            }
+          },
+          {
+            'type': 'pie',
+            'name': '\u6cbb\u6108\u4eba\u6570',
+            'clockwise': true,
+            'data': [
+              {
+                'name': '\u4e0a\u6d77',
+                'value': 485
+              },
+              {
+                'name': '\u4e91\u5357',
+                'value': 176
+              },
+              {
+                'name': '\u5185\u8499\u53e4',
+                'value': 94
+              },
+              {
+                'name': '\u5317\u4eac',
+                'value': 495
+              },
+              {
+                'name': '\u53f0\u6e7e',
+                'value': 124
+              },
+              {
+                'name': '\u5409\u6797',
+                'value': 96
+              },
+              {
+                'name': '\u56db\u5ddd',
+                'value': 550
+              },
+              {
+                'name': '\u5929\u6d25',
+                'value': 168
+              },
+              {
+                'name': '\u5b81\u590f',
+                'value': 75
+              },
+              {
+                'name': '\u5b89\u5fbd',
+                'value': 984
+              },
+              {
+                'name': '\u5c71\u4e1c',
+                'value': 761
+              },
+              {
+                'name': '\u5c71\u897f',
+                'value': 135
+              },
+              {
+                'name': '\u5e7f\u4e1c',
+                'value': 1462
+              },
+              {
+                'name': '\u5e7f\u897f',
+                'value': 252
+              },
+              {
+                'name': '\u65b0\u7586',
+                'value': 73
+              },
+              {
+                'name': '\u6c5f\u82cf',
+                'value': 642
+              },
+              {
+                'name': '\u6c5f\u897f',
+                'value': 936
+              },
+              {
+                'name': '\u6cb3\u5317',
+                'value': 314
+              },
+              {
+                'name': '\u6cb3\u5357',
+                'value': 1254
+              },
+              {
+                'name': '\u6d59\u6c5f',
+                'value': 1244
+              },
+              {
+                'name': '\u6d77\u5357',
+                'value': 162
+              },
+              {
+                'name': '\u6e56\u5317',
+                'value': 64402
+              },
+              {
+                'name': '\u6e56\u5357',
+                'value': 1014
+              },
+              {
+                'name': '\u6fb3\u95e8',
+                'value': 15
+              },
+              {
+                'name': '\u7518\u8083',
+                'value': 136
+              },
+              {
+                'name': '\u798f\u5efa',
+                'value': 331
+              },
+              {
+                'name': '\u897f\u85cf',
+                'value': 1
+              },
+              {
+                'name': '\u8d35\u5dde',
+                'value': 144
+              },
+              {
+                'name': '\u8fbd\u5b81',
+                'value': 138
+              },
+              {
+                'name': '\u91cd\u5e86',
+                'value': 570
+              },
+              {
+                'name': '\u9655\u897f',
+                'value': 251
+              },
+              {
+                'name': '\u9752\u6d77',
+                'value': 18
+              },
+              {
+                'name': '\u9999\u6e2f',
+                'value': 434
+              },
+              {
+                'name': '\u9ed1\u9f99\u6c5f',
+                'value': 470
+              }
+            ],
+            'radius': [
+              '25%',
+              '50%'
+            ],
+            'center': [
+              '60%',
+              '70%'
+            ],
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8,
+              'formatter': '{b}: {c}'
+            },
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            }
+          }
+        ],
+        'legend': [
+          {
+            'data': [
+              '\u4e0a\u6d77',
+              '\u4e91\u5357',
+              '\u5185\u8499\u53e4',
+              '\u5317\u4eac',
+              '\u53f0\u6e7e',
+              '\u5409\u6797',
+              '\u56db\u5ddd',
+              '\u5929\u6d25',
+              '\u5b81\u590f',
+              '\u5b89\u5fbd',
+              '\u5c71\u4e1c',
+              '\u5c71\u897f',
+              '\u5e7f\u4e1c',
+              '\u5e7f\u897f',
+              '\u65b0\u7586',
+              '\u6c5f\u82cf',
+              '\u6c5f\u897f',
+              '\u6cb3\u5317',
+              '\u6cb3\u5357',
+              '\u6d59\u6c5f',
+              '\u6d77\u5357',
+              '\u6e56\u5317',
+              '\u6e56\u5357',
+              '\u6fb3\u95e8',
+              '\u7518\u8083',
+              '\u798f\u5efa',
+              '\u897f\u85cf',
+              '\u8d35\u5dde',
+              '\u8fbd\u5b81',
+              '\u91cd\u5e86',
+              '\u9655\u897f',
+              '\u9752\u6d77',
+              '\u9999\u6e2f',
+              '\u9ed1\u9f99\u6c5f'
+            ],
+            'selected': {},
+            'type': 'scroll',
+            'show': true,
+            'left': '90%',
+            'top': '20%',
+            'orient': 'vertical',
+            'padding': 5,
+            'itemGap': 10,
+            'itemWidth': 25,
+            'itemHeight': 14
+          }
+        ],
+        'tooltip': {
+          'show': true,
+          'trigger': 'item',
+          'triggerOn': 'mousemove|click',
+          'axisPointer': {
+            'type': 'line'
+          },
+          'textStyle': {
+            'fontSize': 14
+          },
+          'borderWidth': 0
+        },
+        'title': [
+          {
+            'text': '\u56fd\u5185\u7701\u4efd\u6b7b\u4ea1/\u6cbb\u6108\u4eba\u6570\u997c\u56fe',
+            'padding': 5,
+            'itemGap': 10
+          }
+        ]
+      }
+      chart_80ae9e7c1b6644758eb0fe6bc508fe8e.setOption(option_80ae9e7c1b6644758eb0fe6bc508fe8e)
+    </script>
+    <div id="c2f28922e6c84f2eb31622445c8d001f" class="chart-container" style="width:1000px; height:500px;"></div>
+    <script>
+      var chart_c2f28922e6c84f2eb31622445c8d001f = echarts.init(
+        document.getElementById('c2f28922e6c84f2eb31622445c8d001f'), 'white', {renderer: 'canvas'})
+      var option_c2f28922e6c84f2eb31622445c8d001f = {
+        'animation': true,
+        'animationThreshold': 2000,
+        'animationDuration': 1000,
+        'animationEasing': 'cubicOut',
+        'animationDelay': 0,
+        'animationDurationUpdate': 300,
+        'animationEasingUpdate': 'cubicOut',
+        'animationDelayUpdate': 0,
+        'color': [
+          '#c23531',
+          '#2f4554',
+          '#61a0a8',
+          '#d48265',
+          '#749f83',
+          '#ca8622',
+          '#bda29a',
+          '#6e7074',
+          '#546570',
+          '#c4ccd3',
+          '#f05b72',
+          '#ef5b9c',
+          '#f47920',
+          '#905a3d',
+          '#fab27b',
+          '#2a5caa',
+          '#444693',
+          '#726930',
+          '#b2d235',
+          '#6d8346',
+          '#ac6767',
+          '#1d953f',
+          '#6950a1',
+          '#918597'
+        ],
+        'series': [
+          {
+            'type': 'bar',
+            'name': '\u65b0\u589e\u786e\u8bca',
+            'data': [
+              26296,
+              1519,
+              2972,
+              -6525,
+              1287,
+              5276,
+              0,
+              4062,
+              0,
+              0,
+              1383,
+              248,
+              1729,
+              3388,
+              0,
+              185,
+              332,
+              1014,
+              832,
+              0,
+              27,
+              519,
+              455,
+              392,
+              74,
+              153,
+              0,
+              15,
+              0,
+              -54,
+              92,
+              151,
+              385,
+              0,
+              0,
+              0,
+              412,
+              0,
+              411,
+              392,
+              102,
+              0,
+              15,
+              119,
+              0,
+              0,
+              0,
+              127,
+              30,
+              166,
+              0,
+              160,
+              25,
+              87,
+              87,
+              50,
+              9,
+              0,
+              67,
+              6,
+              22,
+              20,
+              0,
+              0,
+              73,
+              0,
+              101,
+              0,
+              44,
+              21,
+              0,
+              0,
+              97,
+              0,
+              0,
+              0,
+              70,
+              40,
+              21,
+              22,
+              0,
+              33,
+              9,
+              13,
+              0,
+              12,
+              70,
+              6,
+              22,
+              13,
+              9,
+              0,
+              19,
+              12,
+              6,
+              43,
+              0,
+              30,
+              1,
+              0,
+              0,
+              0,
+              30,
+              10,
+              0,
+              10,
+              1,
+              0,
+              14,
+              8,
+              8,
+              13,
+              6,
+              2,
+              10,
+              21,
+              0,
+              7,
+              0,
+              0,
+              0,
+              32,
+              0,
+              0,
+              23,
+              0,
+              0,
+              14,
+              12,
+              1,
+              0,
+              0,
+              1,
+              4,
+              0,
+              0,
+              0,
+              5,
+              20,
+              0,
+              0,
+              9,
+              0,
+              1,
+              3,
+              0,
+              4,
+              7,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            'barCategoryGap': '20%',
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8
+            }
+          },
+          {
+            'type': 'bar',
+            'name': '\u7d2f\u8ba1\u786e\u8bca',
+            'data': [
+              609516,
+              174060,
+              162488,
+              131362,
+              131359,
+              94845,
+              74877,
+              65111,
+              31119,
+              27580,
+              27063,
+              25936,
+              25684,
+              24490,
+              17448,
+              14226,
+              12200,
+              11555,
+              11479,
+              11445,
+              10591,
+              10303,
+              8100,
+              7917,
+              7603,
+              7202,
+              6879,
+              6706,
+              6623,
+              6440,
+              6151,
+              5988,
+              5399,
+              5369,
+              5223,
+              4987,
+              4933,
+              4839,
+              4465,
+              3764,
+              3574,
+              3428,
+              3307,
+              3286,
+              3281,
+              3252,
+              3161,
+              2979,
+              2643,
+              2443,
+              2415,
+              2350,
+              2170,
+              2070,
+              1934,
+              1888,
+              1720,
+              1704,
+              1579,
+              1528,
+              1400,
+              1386,
+              1373,
+              1355,
+              1275,
+              1220,
+              1214,
+              1197,
+              1111,
+              1091,
+              1083,
+              1012,
+              910,
+              908,
+              848,
+              835,
+              784,
+              766,
+              747,
+              735,
+              712,
+              695,
+              666,
+              659,
+              641,
+              638,
+              636,
+              618,
+              570,
+              528,
+              492,
+              475,
+              449,
+              419,
+              397,
+              397,
+              393,
+              373,
+              372,
+              363,
+              363,
+              324,
+              316,
+              306,
+              299,
+              288,
+              267,
+              241,
+              233,
+              216,
+              197,
+              180,
+              161,
+              161,
+              159,
+              144,
+              136,
+              134,
+              122,
+              113,
+              108,
+              105,
+              93,
+              82,
+              80,
+              79,
+              77,
+              74,
+              74,
+              73,
+              60,
+              59,
+              55,
+              53,
+              49,
+              47,
+              45,
+              43,
+              41,
+              40,
+              37,
+              35,
+              35,
+              35,
+              32,
+              30,
+              29,
+              28,
+              23,
+              23,
+              21,
+              19,
+              19,
+              18,
+              18,
+              16,
+              16,
+              16,
+              16,
+              16,
+              15,
+              15,
+              14,
+              14,
+              13,
+              12,
+              11,
+              11,
+              11,
+              11,
+              10,
+              9,
+              9,
+              8,
+              7,
+              6,
+              5,
+              5,
+              2,
+              1
+            ],
+            'barCategoryGap': '20%',
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8
+            }
+          },
+          {
+            'type': 'bar',
+            'name': '\u6cbb\u6108',
+            'data': [
+              26057,
+              18255,
+              21067,
+              15750,
+              3294,
+              12129,
+              4683,
+              1403,
+              4157,
+              2955,
+              903,
+              1174,
+              1552,
+              198,
+              567,
+              384,
+              126,
+              396,
+              406,
+              1033,
+              225,
+              230,
+              146,
+              92,
+              369,
+              263,
+              357,
+              299,
+              139,
+              63,
+              163,
+              107,
+              406,
+              73,
+              335,
+              82,
+              28,
+              459,
+              94,
+              108,
+              95,
+              7,
+              67,
+              183,
+              33,
+              10,
+              64,
+              127,
+              43,
+              105,
+              27,
+              178,
+              101,
+              326,
+              41,
+              126,
+              8,
+              31,
+              134,
+              7,
+              78,
+              9,
+              31,
+              3,
+              15,
+              56,
+              4,
+              13,
+              17,
+              29,
+              40,
+              46,
+              4,
+              44,
+              14,
+              2,
+              25,
+              21,
+              34,
+              36,
+              12,
+              12,
+              5,
+              31,
+              21,
+              6,
+              8,
+              3,
+              14,
+              30,
+              8,
+              24,
+              5,
+              31,
+              7,
+              28,
+              3,
+              11,
+              36,
+              0,
+              2,
+              9,
+              12,
+              3,
+              2,
+              4,
+              0,
+              20,
+              7,
+              9,
+              9,
+              5,
+              1,
+              8,
+              6,
+              13,
+              1,
+              0,
+              0,
+              8,
+              0,
+              5,
+              1,
+              3,
+              1,
+              1,
+              3,
+              5,
+              4,
+              5,
+              2,
+              6,
+              0,
+              3,
+              8,
+              6,
+              2,
+              0,
+              0,
+              3,
+              1,
+              1,
+              1,
+              0,
+              5,
+              0,
+              2,
+              0,
+              0,
+              2,
+              0,
+              0,
+              2,
+              3,
+              2,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            'barCategoryGap': '20%',
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8
+            }
+          },
+          {
+            'type': 'bar',
+            'name': '\u6b7b\u4ea1',
+            'data': [
+              49966,
+              67504,
+              37130,
+              29121,
+              72600,
+              323,
+              48129,
+              4799,
+              6868,
+              297,
+              8235,
+              13700,
+              14026,
+              1986,
+              347,
+              7633,
+              2309,
+              1362,
+              77,
+              381,
+              7616,
+              2869,
+              853,
+              2646,
+              696,
+              668,
+              1051,
+              2692,
+              32,
+              2186,
+              676,
+              1446,
+              2125,
+              889,
+              295,
+              2478,
+              933,
+              426,
+              118,
+              143,
+              72,
+              373,
+              500,
+              162,
+              203,
+              611,
+              300,
+              354,
+              1497,
+              559,
+              410,
+              589,
+              269,
+              691,
+              171,
+              217,
+              989,
+              415,
+              192,
+              648,
+              766,
+              728,
+              115,
+              176,
+              203,
+              152,
+              99,
+              351,
+              297,
+              138,
+              236,
+              42,
+              131,
+              86,
+              130,
+              113,
+              43,
+              132,
+              43,
+              105,
+              639,
+              65,
+              16,
+              128,
+              80,
+              114,
+              17,
+              66,
+              90,
+              177,
+              260,
+              248,
+              78,
+              9,
+              235,
+              7,
+              44,
+              99,
+              53,
+              31,
+              53,
+              51,
+              0,
+              69,
+              183,
+              46,
+              169,
+              20,
+              61,
+              41,
+              111,
+              19,
+              18,
+              23,
+              30,
+              34,
+              107,
+              49,
+              96,
+              17,
+              23,
+              21,
+              6,
+              14,
+              4,
+              55,
+              32,
+              10,
+              2,
+              15,
+              2,
+              4,
+              8,
+              7,
+              6,
+              8,
+              30,
+              0,
+              4,
+              0,
+              0,
+              9,
+              18,
+              0,
+              4,
+              5,
+              5,
+              2,
+              2,
+              3,
+              16,
+              1,
+              5,
+              1,
+              0,
+              0,
+              0,
+              3,
+              8,
+              1,
+              11,
+              8,
+              0,
+              0,
+              0,
+              1,
+              0,
+              4,
+              0,
+              1,
+              6,
+              2,
+              4,
+              2,
+              2,
+              1,
+              2,
+              0,
+              0,
+              0
+            ],
+            'barCategoryGap': '20%',
+            'label': {
+              'show': true,
+              'position': 'top',
+              'margin': 8
+            }
+          }
+        ],
+        'legend': [
+          {
+            'data': [
+              '\u65b0\u589e\u786e\u8bca',
+              '\u7d2f\u8ba1\u786e\u8bca',
+              '\u6cbb\u6108',
+              '\u6b7b\u4ea1'
+            ],
+            'selected': {
+              '\u65b0\u589e\u786e\u8bca': true,
+              '\u7d2f\u8ba1\u786e\u8bca': true,
+              '\u6cbb\u6108': true,
+              '\u6b7b\u4ea1': true
+            },
+            'show': true,
+            'padding': 5,
+            'itemGap': 10,
+            'itemWidth': 25,
+            'itemHeight': 14
+          }
+        ],
+        'tooltip': {
+          'show': true,
+          'trigger': 'axis',
+          'triggerOn': 'mousemove|click',
+          'axisPointer': {
+            'type': 'line'
+          },
+          'textStyle': {
+            'fontSize': 14
+          },
+          'borderWidth': 0
+        },
+        'xAxis': [
+          {
+            'name': '\u56fd\u5bb6',
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'gridIndex': 0,
+            'inverse': false,
+            'offset': 0,
+            'splitNumber': 5,
+            'minInterval': 0,
+            'splitLine': {
+              'show': false,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            },
+            'data': [
+              '\u7f8e\u56fd',
+              '\u897f\u73ed\u7259',
+              '\u610f\u5927\u5229',
+              '\u6cd5\u56fd',
+              '\u5fb7\u56fd',
+              '\u82f1\u56fd',
+              '\u4f0a\u6717',
+              '\u571f\u8033\u5176',
+              '\u6bd4\u5229\u65f6',
+              '\u8377\u5170',
+              '\u52a0\u62ff\u5927',
+              '\u745e\u58eb',
+              '\u5df4\u897f',
+              '\u4fc4\u7f57\u65af',
+              '\u8461\u8404\u7259',
+              '\u5965\u5730\u5229',
+              '\u4ee5\u8272\u5217',
+              '\u5370\u5ea6',
+              '\u7231\u5c14\u5170',
+              '\u745e\u5178',
+              '\u97e9\u56fd',
+              '\u79d8\u9c81',
+              '\u65e5\u672c\u672c\u571f',
+              '\u667a\u5229',
+              '\u5384\u74dc\u591a\u5c14',
+              '\u6ce2\u5170',
+              '\u7f57\u9a6c\u5c3c\u4e9a',
+              '\u4e39\u9ea6',
+              '\u632a\u5a01',
+              '\u6fb3\u5927\u5229\u4e9a',
+              '\u6377\u514b',
+              '\u5df4\u57fa\u65af\u5766',
+              '\u58a8\u897f\u54e5',
+              '\u6c99\u7279\u963f\u62c9\u4f2f',
+              '\u83f2\u5f8b\u5bbe',
+              '\u9a6c\u6765\u897f\u4e9a',
+              '\u963f\u8054\u914b',
+              '\u5370\u5ea6\u5c3c\u897f\u4e9a',
+              '\u585e\u5c14\u7ef4\u4e9a',
+              '\u4e4c\u514b\u5170',
+              '\u5df4\u62ff\u9a6c',
+              '\u5361\u5854\u5c14',
+              '\u5362\u68ee\u5821',
+              '\u591a\u7c73\u5c3c\u52a0',
+              '\u767d\u4fc4\u7f57\u65af',
+              '\u65b0\u52a0\u5761',
+              '\u82ac\u5170',
+              '\u54e5\u4f26\u6bd4\u4e9a',
+              '\u6cf0\u56fd',
+              '\u963f\u6839\u5ef7',
+              '\u5357\u975e',
+              '\u57c3\u53ca',
+              '\u5e0c\u814a',
+              '\u963f\u5c14\u53ca\u5229\u4e9a',
+              '\u6469\u5c14\u591a\u74e6',
+              '\u6469\u6d1b\u54e5',
+              '\u51b0\u5c9b',
+              '\u514b\u7f57\u5730\u4e9a',
+              '\u5308\u7259\u5229',
+              '\u5df4\u6797',
+              '\u4f0a\u62c9\u514b',
+              '\u65b0\u897f\u5170',
+              '\u7231\u6c99\u5c3c\u4e9a',
+              '\u79d1\u5a01\u7279',
+              '\u54c8\u8428\u514b\u65af\u5766',
+              '\u65af\u6d1b\u6587\u5c3c\u4e9a',
+              '\u4e4c\u5179\u522b\u514b\u65af\u5766',
+              '\u963f\u585e\u62dc\u7586',
+              '\u4e9a\u7f8e\u5c3c\u4e9a',
+              '\u7acb\u9676\u5b9b',
+              '\u6ce2\u9ed1',
+              '\u5b5f\u52a0\u62c9',
+              '\u963f\u66fc',
+              '\u5317\u9a6c\u5176\u987f',
+              '\u5580\u9ea6\u9686',
+              '\u65af\u6d1b\u4f10\u514b',
+              '\u963f\u5bcc\u6c57',
+              '\u53e4\u5df4',
+              '\u7a81\u5c3c\u65af',
+              '\u4fdd\u52a0\u5229\u4e9a',
+              '\u94bb\u77f3\u53f7\u90ae\u8f6e',
+              '\u585e\u6d66\u8def\u65af',
+              '\u62c9\u8131\u7ef4\u4e9a',
+              '\u5b89\u9053\u5c14',
+              '\u9ece\u5df4\u5ae9',
+              '\u79d1\u7279\u8fea\u74e6',
+              '\u52a0\u7eb3',
+              '\u54e5\u65af\u8fbe\u9ece\u52a0',
+              '\u5c3c\u65e5\u5c14',
+              '\u5e03\u57fa\u7eb3\u6cd5\u7d22',
+              '\u4e4c\u62c9\u572d',
+              '\u963f\u5c14\u5df4\u5c3c\u4e9a',
+              '\u5409\u5c14\u5409\u65af\u65af\u5766',
+              '\u6d2a\u90fd\u62c9\u65af',
+              '\u7ea6\u65e6',
+              '\u73bb\u5229\u7ef4\u4e9a',
+              '\u9a6c\u8033\u4ed6',
+              '\u5c3c\u65e5\u5229\u4e9a',
+              '\u5723\u9a6c\u529b\u8bfa',
+              '\u51e0\u5185\u4e9a',
+              '\u5409\u5e03\u63d0',
+              '\u6bdb\u91cc\u6c42\u65af',
+              '\u6ce2\u591a\u9ece\u5404',
+              '\u683c\u9c81\u5409\u4e9a',
+              '\u585e\u5185\u52a0\u5c14',
+              '\u9ed1\u5c71',
+              '\u8d8a\u5357',
+              '\u521a\u679c\uff08\u91d1\uff09',
+              '\u65af\u91cc\u5170\u5361',
+              '\u80af\u5c3c\u4e9a',
+              '\u59d4\u5185\u745e\u62c9',
+              '\u5371\u5730\u9a6c\u62c9',
+              '\u5df4\u52d2\u65af\u5766',
+              '\u5df4\u62c9\u572d',
+              '\u8428\u5c14\u74e6\u591a',
+              '\u9a6c\u91cc',
+              '\u6587\u83b1',
+              '\u5362\u65fa\u8fbe',
+              '\u67ec\u57d4\u5be8',
+              '\u7279\u7acb\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5',
+              '\u9a6c\u8fbe\u52a0\u65af\u52a0',
+              '\u7259\u4e70\u52a0',
+              '\u6469\u7eb3\u54e5',
+              '\u57c3\u585e\u4fc4\u6bd4\u4e9a',
+              '\u52a0\u84ec',
+              '\u5217\u652f\u6566\u58eb\u767b\u516c\u56fd',
+              '\u591a\u54e5',
+              '\u521a\u679c\uff08\u5e03\uff09',
+              '\u7f05\u7538',
+              '\u5df4\u5df4\u591a\u65af',
+              '\u7d22\u9a6c\u91cc',
+              '\u5229\u6bd4\u91cc\u4e9a',
+              '\u4e4c\u5e72\u8fbe',
+              '\u5766\u6851\u5c3c\u4e9a',
+              '\u5df4\u54c8\u9a6c',
+              '\u572d\u4e9a\u90a3',
+              '\u8d5e\u6bd4\u4e9a',
+              '\u51e0\u5185\u4e9a\u6bd4\u7ecd',
+              '\u8d64\u9053\u51e0\u5185\u4e9a',
+              '\u6d77\u5730',
+              '\u9a6c\u63d0\u5c3c\u514b\u5c9b',
+              '\u5229\u6bd4\u4e9a',
+              '\u8d1d\u5b81',
+              '\u5384\u7acb\u7279\u91cc\u4e9a',
+              '\u82cf\u4e39',
+              '\u8499\u53e4',
+              '\u53d9\u5229\u4e9a',
+              '\u83ab\u6851\u6bd4\u514b',
+              '\u4e4d\u5f97',
+              '\u5b89\u63d0\u74dc\u548c\u5df4\u5e03\u8fbe',
+              '\u9a6c\u5c14\u4ee3\u592b',
+              '\u8001\u631d',
+              '\u5b89\u54e5\u62c9',
+              '\u6d25\u5df4\u5e03\u97e6',
+              '\u4f2f\u5229\u5179',
+              '\u6590\u6d4e',
+              '\u9a6c\u62c9\u7ef4',
+              '\u7eb3\u7c73\u6bd4\u4e9a',
+              '\u591a\u7c73\u5c3c\u514b',
+              '\u5c3c\u6cca\u5c14',
+              '\u5723\u5362\u897f\u4e9a',
+              '\u65af\u5a01\u58eb\u5170',
+              '\u5723\u57fa\u8328\u548c\u5c3c\u7ef4\u65af',
+              '\u683c\u6797\u7eb3\u8fbe',
+              '\u535a\u8328\u74e6\u7eb3',
+              '\u5723\u6587\u68ee\u7279\u548c\u683c\u6797\u7eb3\u4e01\u65af',
+              '\u585e\u62c9\u5229\u6602',
+              '\u4e2d\u975e\u5171\u548c\u56fd',
+              '\u585e\u820c\u5c14',
+              '\u4f5b\u5f97\u89d2',
+              '\u82cf\u91cc\u5357',
+              '\u5188\u6bd4\u4e9a',
+              '\u5c3c\u52a0\u62c9\u74dc',
+              '\u68b5\u8482\u5188',
+              '\u6bdb\u91cc\u5854\u5c3c\u4e9a',
+              '\u4e1c\u5e1d\u6c76',
+              '\u4e0d\u4e39',
+              '\u5e03\u9686\u8fea',
+              '\u5df4\u5e03\u4e9a\u65b0\u51e0\u5185\u4e9a',
+              '\u4e5f\u95e8'
+            ]
+          }
+        ],
+        'yAxis': [
+          {
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'gridIndex': 0,
+            'axisTick': {
+              'show': true,
+              'alignWithLabel': false,
+              'inside': false
+            },
+            'inverse': false,
+            'offset': 0,
+            'splitNumber': 5,
+            'minInterval': 0,
+            'splitLine': {
+              'show': false,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            }
+          },
+          {
+            'type': 'value',
+            'name': '\u4eba\u6570/\u4eba',
+            'show': true,
+            'scale': false,
+            'nameLocation': 'end',
+            'nameGap': 15,
+            'gridIndex': 0,
+            'inverse': false,
+            'position': 'left',
+            'offset': 0,
+            'splitNumber': 5,
+            'minInterval': 0,
+            'splitLine': {
+              'show': false,
+              'lineStyle': {
+                'show': true,
+                'width': 1,
+                'opacity': 1,
+                'curveness': 0,
+                'type': 'solid'
+              }
+            }
+          }
+        ],
+        'title': [
+          {
+            'text': '\u56fd\u5916\u75ab\u60c5\u6570\u636e',
+            'padding': 5,
+            'itemGap': 10
+          }
+        ],
+        'dataZoom': {
+          'show': true,
+          'type': 'slider',
+          'realtime': true,
+          'start': 30,
+          'end': 90,
+          'orient': 'horizontal',
+          'zoomLock': false
+        }
+      }
+      chart_c2f28922e6c84f2eb31622445c8d001f.setOption(option_c2f28922e6c84f2eb31622445c8d001f)
+    </script>
+    <div id="a2a64d51ec4c410588e323e86cad0244" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+      var chart_a2a64d51ec4c410588e323e86cad0244 = echarts.init(
+        document.getElementById('a2a64d51ec4c410588e323e86cad0244'), 'roma', {renderer: 'canvas'})
+      var option_a2a64d51ec4c410588e323e86cad0244 = {
+        'backgroundColor': '#eee',
+        'animation': true,
+        'animationThreshold': 2000,
+        'animationDuration': 1000,
+        'animationEasing': 'cubicOut',
+        'animationDelay': 0,
+        'animationDurationUpdate': 300,
+        'animationEasingUpdate': 'cubicOut',
+        'animationDelayUpdate': 0,
+        'series': [
+          {
+            'type': 'map',
+            'name': '\u786e\u8bca\u75c5\u4f8b',
+            'label': {
+              'show': false,
+              'position': 'top',
+              'margin': 8
+            },
+            'mapType': 'world',
+            'data': [
+              {
+                'name': '\u7f8e\u56fd',
+                'value': 609516
+              },
+              {
+                'name': '\u897f\u73ed\u7259',
+                'value': 174060
+              },
+              {
+                'name': '\u610f\u5927\u5229',
+                'value': 162488
+              },
+              {
+                'name': '\u6cd5\u56fd',
+                'value': 131362
+              },
+              {
+                'name': '\u5fb7\u56fd',
+                'value': 131359
+              },
+              {
+                'name': '\u82f1\u56fd',
+                'value': 94845
+              },
+              {
+                'name': '\u4f0a\u6717',
+                'value': 74877
+              },
+              {
+                'name': '\u571f\u8033\u5176',
+                'value': 65111
+              },
+              {
+                'name': '\u6bd4\u5229\u65f6',
+                'value': 31119
+              },
+              {
+                'name': '\u8377\u5170',
+                'value': 27580
+              },
+              {
+                'name': '\u52a0\u62ff\u5927',
+                'value': 27063
+              },
+              {
+                'name': '\u745e\u58eb',
+                'value': 25936
+              },
+              {
+                'name': '\u5df4\u897f',
+                'value': 25684
+              },
+              {
+                'name': '\u4fc4\u7f57\u65af',
+                'value': 24490
+              },
+              {
+                'name': '\u8461\u8404\u7259',
+                'value': 17448
+              },
+              {
+                'name': '\u5965\u5730\u5229',
+                'value': 14226
+              },
+              {
+                'name': '\u4ee5\u8272\u5217',
+                'value': 12200
+              },
+              {
+                'name': '\u5370\u5ea6',
+                'value': 11555
+              },
+              {
+                'name': '\u7231\u5c14\u5170',
+                'value': 11479
+              },
+              {
+                'name': '\u745e\u5178',
+                'value': 11445
+              },
+              {
+                'name': '\u97e9\u56fd',
+                'value': 10591
+              },
+              {
+                'name': '\u79d8\u9c81',
+                'value': 10303
+              },
+              {
+                'name': '\u65e5\u672c\u672c\u571f',
+                'value': 8100
+              },
+              {
+                'name': '\u667a\u5229',
+                'value': 7917
+              },
+              {
+                'name': '\u5384\u74dc\u591a\u5c14',
+                'value': 7603
+              },
+              {
+                'name': '\u6ce2\u5170',
+                'value': 7202
+              },
+              {
+                'name': '\u7f57\u9a6c\u5c3c\u4e9a',
+                'value': 6879
+              },
+              {
+                'name': '\u4e39\u9ea6',
+                'value': 6706
+              },
+              {
+                'name': '\u632a\u5a01',
+                'value': 6623
+              },
+              {
+                'name': '\u6fb3\u5927\u5229\u4e9a',
+                'value': 6440
+              },
+              {
+                'name': '\u6377\u514b',
+                'value': 6151
+              },
+              {
+                'name': '\u5df4\u57fa\u65af\u5766',
+                'value': 5988
+              },
+              {
+                'name': '\u58a8\u897f\u54e5',
+                'value': 5399
+              },
+              {
+                'name': '\u6c99\u7279\u963f\u62c9\u4f2f',
+                'value': 5369
+              },
+              {
+                'name': '\u83f2\u5f8b\u5bbe',
+                'value': 5223
+              },
+              {
+                'name': '\u9a6c\u6765\u897f\u4e9a',
+                'value': 4987
+              },
+              {
+                'name': '\u963f\u8054\u914b',
+                'value': 4933
+              },
+              {
+                'name': '\u5370\u5ea6\u5c3c\u897f\u4e9a',
+                'value': 4839
+              },
+              {
+                'name': '\u585e\u5c14\u7ef4\u4e9a',
+                'value': 4465
+              },
+              {
+                'name': '\u4e4c\u514b\u5170',
+                'value': 3764
+              },
+              {
+                'name': '\u5df4\u62ff\u9a6c',
+                'value': 3574
+              },
+              {
+                'name': '\u5361\u5854\u5c14',
+                'value': 3428
+              },
+              {
+                'name': '\u5362\u68ee\u5821',
+                'value': 3307
+              },
+              {
+                'name': '\u591a\u7c73\u5c3c\u52a0',
+                'value': 3286
+              },
+              {
+                'name': '\u767d\u4fc4\u7f57\u65af',
+                'value': 3281
+              },
+              {
+                'name': '\u65b0\u52a0\u5761',
+                'value': 3252
+              },
+              {
+                'name': '\u82ac\u5170',
+                'value': 3161
+              },
+              {
+                'name': '\u54e5\u4f26\u6bd4\u4e9a',
+                'value': 2979
+              },
+              {
+                'name': '\u6cf0\u56fd',
+                'value': 2643
+              },
+              {
+                'name': '\u963f\u6839\u5ef7',
+                'value': 2443
+              },
+              {
+                'name': '\u5357\u975e',
+                'value': 2415
+              },
+              {
+                'name': '\u57c3\u53ca',
+                'value': 2350
+              },
+              {
+                'name': '\u5e0c\u814a',
+                'value': 2170
+              },
+              {
+                'name': '\u963f\u5c14\u53ca\u5229\u4e9a',
+                'value': 2070
+              },
+              {
+                'name': '\u6469\u5c14\u591a\u74e6',
+                'value': 1934
+              },
+              {
+                'name': '\u6469\u6d1b\u54e5',
+                'value': 1888
+              },
+              {
+                'name': '\u51b0\u5c9b',
+                'value': 1720
+              },
+              {
+                'name': '\u514b\u7f57\u5730\u4e9a',
+                'value': 1704
+              },
+              {
+                'name': '\u5308\u7259\u5229',
+                'value': 1579
+              },
+              {
+                'name': '\u5df4\u6797',
+                'value': 1528
+              },
+              {
+                'name': '\u4f0a\u62c9\u514b',
+                'value': 1400
+              },
+              {
+                'name': '\u65b0\u897f\u5170',
+                'value': 1386
+              },
+              {
+                'name': '\u7231\u6c99\u5c3c\u4e9a',
+                'value': 1373
+              },
+              {
+                'name': '\u79d1\u5a01\u7279',
+                'value': 1355
+              },
+              {
+                'name': '\u54c8\u8428\u514b\u65af\u5766',
+                'value': 1275
+              },
+              {
+                'name': '\u65af\u6d1b\u6587\u5c3c\u4e9a',
+                'value': 1220
+              },
+              {
+                'name': '\u4e4c\u5179\u522b\u514b\u65af\u5766',
+                'value': 1214
+              },
+              {
+                'name': '\u963f\u585e\u62dc\u7586',
+                'value': 1197
+              },
+              {
+                'name': '\u4e9a\u7f8e\u5c3c\u4e9a',
+                'value': 1111
+              },
+              {
+                'name': '\u7acb\u9676\u5b9b',
+                'value': 1091
+              },
+              {
+                'name': '\u6ce2\u9ed1',
+                'value': 1083
+              },
+              {
+                'name': '\u5b5f\u52a0\u62c9',
+                'value': 1012
+              },
+              {
+                'name': '\u963f\u66fc',
+                'value': 910
+              },
+              {
+                'name': '\u5317\u9a6c\u5176\u987f',
+                'value': 908
+              },
+              {
+                'name': '\u5580\u9ea6\u9686',
+                'value': 848
+              },
+              {
+                'name': '\u65af\u6d1b\u4f10\u514b',
+                'value': 835
+              },
+              {
+                'name': '\u963f\u5bcc\u6c57',
+                'value': 784
+              },
+              {
+                'name': '\u53e4\u5df4',
+                'value': 766
+              },
+              {
+                'name': '\u7a81\u5c3c\u65af',
+                'value': 747
+              },
+              {
+                'name': '\u4fdd\u52a0\u5229\u4e9a',
+                'value': 735
+              },
+              {
+                'name': '\u94bb\u77f3\u53f7\u90ae\u8f6e',
+                'value': 712
+              },
+              {
+                'name': '\u585e\u6d66\u8def\u65af',
+                'value': 695
+              },
+              {
+                'name': '\u62c9\u8131\u7ef4\u4e9a',
+                'value': 666
+              },
+              {
+                'name': '\u5b89\u9053\u5c14',
+                'value': 659
+              },
+              {
+                'name': '\u9ece\u5df4\u5ae9',
+                'value': 641
+              },
+              {
+                'name': '\u79d1\u7279\u8fea\u74e6',
+                'value': 638
+              },
+              {
+                'name': '\u52a0\u7eb3',
+                'value': 636
+              },
+              {
+                'name': '\u54e5\u65af\u8fbe\u9ece\u52a0',
+                'value': 618
+              },
+              {
+                'name': '\u5c3c\u65e5\u5c14',
+                'value': 570
+              },
+              {
+                'name': '\u5e03\u57fa\u7eb3\u6cd5\u7d22',
+                'value': 528
+              },
+              {
+                'name': '\u4e4c\u62c9\u572d',
+                'value': 492
+              },
+              {
+                'name': '\u963f\u5c14\u5df4\u5c3c\u4e9a',
+                'value': 475
+              },
+              {
+                'name': '\u5409\u5c14\u5409\u65af\u65af\u5766',
+                'value': 449
+              },
+              {
+                'name': '\u6d2a\u90fd\u62c9\u65af',
+                'value': 419
+              },
+              {
+                'name': '\u7ea6\u65e6',
+                'value': 397
+              },
+              {
+                'name': '\u73bb\u5229\u7ef4\u4e9a',
+                'value': 397
+              },
+              {
+                'name': '\u9a6c\u8033\u4ed6',
+                'value': 393
+              },
+              {
+                'name': '\u5c3c\u65e5\u5229\u4e9a',
+                'value': 373
+              },
+              {
+                'name': '\u5723\u9a6c\u529b\u8bfa',
+                'value': 372
+              },
+              {
+                'name': '\u51e0\u5185\u4e9a',
+                'value': 363
+              },
+              {
+                'name': '\u5409\u5e03\u63d0',
+                'value': 363
+              },
+              {
+                'name': '\u6bdb\u91cc\u6c42\u65af',
+                'value': 324
+              },
+              {
+                'name': '\u6ce2\u591a\u9ece\u5404',
+                'value': 316
+              },
+              {
+                'name': '\u683c\u9c81\u5409\u4e9a',
+                'value': 306
+              },
+              {
+                'name': '\u585e\u5185\u52a0\u5c14',
+                'value': 299
+              },
+              {
+                'name': '\u9ed1\u5c71',
+                'value': 288
+              },
+              {
+                'name': '\u8d8a\u5357',
+                'value': 267
+              },
+              {
+                'name': '\u521a\u679c\uff08\u91d1\uff09',
+                'value': 241
+              },
+              {
+                'name': '\u65af\u91cc\u5170\u5361',
+                'value': 233
+              },
+              {
+                'name': '\u80af\u5c3c\u4e9a',
+                'value': 216
+              },
+              {
+                'name': '\u59d4\u5185\u745e\u62c9',
+                'value': 197
+              },
+              {
+                'name': '\u5371\u5730\u9a6c\u62c9',
+                'value': 180
+              },
+              {
+                'name': '\u5df4\u52d2\u65af\u5766',
+                'value': 161
+              },
+              {
+                'name': '\u5df4\u62c9\u572d',
+                'value': 161
+              },
+              {
+                'name': '\u8428\u5c14\u74e6\u591a',
+                'value': 159
+              },
+              {
+                'name': '\u9a6c\u91cc',
+                'value': 144
+              },
+              {
+                'name': '\u6587\u83b1',
+                'value': 136
+              },
+              {
+                'name': '\u5362\u65fa\u8fbe',
+                'value': 134
+              },
+              {
+                'name': '\u67ec\u57d4\u5be8',
+                'value': 122
+              },
+              {
+                'name': '\u7279\u7acb\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5',
+                'value': 113
+              },
+              {
+                'name': '\u9a6c\u8fbe\u52a0\u65af\u52a0',
+                'value': 108
+              },
+              {
+                'name': '\u7259\u4e70\u52a0',
+                'value': 105
+              },
+              {
+                'name': '\u6469\u7eb3\u54e5',
+                'value': 93
+              },
+              {
+                'name': '\u57c3\u585e\u4fc4\u6bd4\u4e9a',
+                'value': 82
+              },
+              {
+                'name': '\u52a0\u84ec',
+                'value': 80
+              },
+              {
+                'name': '\u5217\u652f\u6566\u58eb\u767b\u516c\u56fd',
+                'value': 79
+              },
+              {
+                'name': '\u591a\u54e5',
+                'value': 77
+              },
+              {
+                'name': '\u521a\u679c\uff08\u5e03\uff09',
+                'value': 74
+              },
+              {
+                'name': '\u7f05\u7538',
+                'value': 74
+              },
+              {
+                'name': '\u5df4\u5df4\u591a\u65af',
+                'value': 73
+              },
+              {
+                'name': '\u7d22\u9a6c\u91cc',
+                'value': 60
+              },
+              {
+                'name': '\u5229\u6bd4\u91cc\u4e9a',
+                'value': 59
+              },
+              {
+                'name': '\u4e4c\u5e72\u8fbe',
+                'value': 55
+              },
+              {
+                'name': '\u5766\u6851\u5c3c\u4e9a',
+                'value': 53
+              },
+              {
+                'name': '\u5df4\u54c8\u9a6c',
+                'value': 49
+              },
+              {
+                'name': '\u572d\u4e9a\u90a3',
+                'value': 47
+              },
+              {
+                'name': '\u8d5e\u6bd4\u4e9a',
+                'value': 45
+              },
+              {
+                'name': '\u51e0\u5185\u4e9a\u6bd4\u7ecd',
+                'value': 43
+              },
+              {
+                'name': '\u8d64\u9053\u51e0\u5185\u4e9a',
+                'value': 41
+              },
+              {
+                'name': '\u6d77\u5730',
+                'value': 40
+              },
+              {
+                'name': '\u9a6c\u63d0\u5c3c\u514b\u5c9b',
+                'value': 37
+              },
+              {
+                'name': '\u5229\u6bd4\u4e9a',
+                'value': 35
+              },
+              {
+                'name': '\u8d1d\u5b81',
+                'value': 35
+              },
+              {
+                'name': '\u5384\u7acb\u7279\u91cc\u4e9a',
+                'value': 35
+              },
+              {
+                'name': '\u82cf\u4e39',
+                'value': 32
+              },
+              {
+                'name': '\u8499\u53e4',
+                'value': 30
+              },
+              {
+                'name': '\u53d9\u5229\u4e9a',
+                'value': 29
+              },
+              {
+                'name': '\u83ab\u6851\u6bd4\u514b',
+                'value': 28
+              },
+              {
+                'name': '\u4e4d\u5f97',
+                'value': 23
+              },
+              {
+                'name': '\u5b89\u63d0\u74dc\u548c\u5df4\u5e03\u8fbe',
+                'value': 23
+              },
+              {
+                'name': '\u9a6c\u5c14\u4ee3\u592b',
+                'value': 21
+              },
+              {
+                'name': '\u8001\u631d',
+                'value': 19
+              },
+              {
+                'name': '\u5b89\u54e5\u62c9',
+                'value': 19
+              },
+              {
+                'name': '\u6d25\u5df4\u5e03\u97e6',
+                'value': 18
+              },
+              {
+                'name': '\u4f2f\u5229\u5179',
+                'value': 18
+              },
+              {
+                'name': '\u6590\u6d4e',
+                'value': 16
+              },
+              {
+                'name': '\u9a6c\u62c9\u7ef4',
+                'value': 16
+              },
+              {
+                'name': '\u7eb3\u7c73\u6bd4\u4e9a',
+                'value': 16
+              },
+              {
+                'name': '\u591a\u7c73\u5c3c\u514b',
+                'value': 16
+              },
+              {
+                'name': '\u5c3c\u6cca\u5c14',
+                'value': 16
+              },
+              {
+                'name': '\u5723\u5362\u897f\u4e9a',
+                'value': 15
+              },
+              {
+                'name': '\u65af\u5a01\u58eb\u5170',
+                'value': 15
+              },
+              {
+                'name': '\u5723\u57fa\u8328\u548c\u5c3c\u7ef4\u65af',
+                'value': 14
+              },
+              {
+                'name': '\u683c\u6797\u7eb3\u8fbe',
+                'value': 14
+              },
+              {
+                'name': '\u535a\u8328\u74e6\u7eb3',
+                'value': 13
+              },
+              {
+                'name': '\u5723\u6587\u68ee\u7279\u548c\u683c\u6797\u7eb3\u4e01\u65af',
+                'value': 12
+              },
+              {
+                'name': '\u585e\u62c9\u5229\u6602',
+                'value': 11
+              },
+              {
+                'name': '\u4e2d\u975e\u5171\u548c\u56fd',
+                'value': 11
+              },
+              {
+                'name': '\u585e\u820c\u5c14',
+                'value': 11
+              },
+              {
+                'name': '\u4f5b\u5f97\u89d2',
+                'value': 11
+              },
+              {
+                'name': '\u82cf\u91cc\u5357',
+                'value': 10
+              },
+              {
+                'name': '\u5188\u6bd4\u4e9a',
+                'value': 9
+              },
+              {
+                'name': '\u5c3c\u52a0\u62c9\u74dc',
+                'value': 9
+              },
+              {
+                'name': '\u68b5\u8482\u5188',
+                'value': 8
+              },
+              {
+                'name': '\u6bdb\u91cc\u5854\u5c3c\u4e9a',
+                'value': 7
+              },
+              {
+                'name': '\u4e1c\u5e1d\u6c76',
+                'value': 6
+              },
+              {
+                'name': '\u4e0d\u4e39',
+                'value': 5
+              },
+              {
+                'name': '\u5e03\u9686\u8fea',
+                'value': 5
+              },
+              {
+                'name': '\u5df4\u5e03\u4e9a\u65b0\u51e0\u5185\u4e9a',
+                'value': 2
+              },
+              {
+                'name': '\u4e5f\u95e8',
+                'value': 1
+              }
+            ],
+            'roam': true,
+            'zoom': 1,
+            'nameMap': {
+              'Singapore Rep.': '\u65b0\u52a0\u5761',
+              'Dominican Rep.': '\u591a\u7c73\u5c3c\u52a0',
+              'Palestine': '\u5df4\u52d2\u65af\u5766',
+              'Bahamas': '\u5df4\u54c8\u9a6c',
+              'Timor-Leste': '\u4e1c\u5e1d\u6c76',
+              'Afghanistan': '\u963f\u5bcc\u6c57',
+              'Guinea-Bissau': '\u51e0\u5185\u4e9a\u6bd4\u7ecd',
+              'C\u00f4te d\'Ivoire': '\u79d1\u7279\u8fea\u74e6',
+              'Siachen Glacier': '\u9521\u4e9a\u7434\u51b0\u5ddd',
+              'Br. Indian Ocean Ter.': '\u82f1\u5c5e\u5370\u5ea6\u6d0b\u9886\u571f',
+              'Angola': '\u5b89\u54e5\u62c9',
+              'Albania': '\u963f\u5c14\u5df4\u5c3c\u4e9a',
+              'United Arab Emirates': '\u963f\u8054\u914b',
+              'Argentina': '\u963f\u6839\u5ef7',
+              'Armenia': '\u4e9a\u7f8e\u5c3c\u4e9a',
+              'French Southern and Antarctic Lands': '\u6cd5\u5c5e\u5357\u534a\u7403\u548c\u5357\u6781\u9886\u5730',
+              'Australia': '\u6fb3\u5927\u5229\u4e9a',
+              'Austria': '\u5965\u5730\u5229',
+              'Azerbaijan': '\u963f\u585e\u62dc\u7586',
+              'Burundi': '\u5e03\u9686\u8fea',
+              'Belgium': '\u6bd4\u5229\u65f6',
+              'Benin': '\u8d1d\u5b81',
+              'Burkina Faso': '\u5e03\u57fa\u7eb3\u6cd5\u7d22',
+              'Bangladesh': '\u5b5f\u52a0\u62c9\u56fd',
+              'Bulgaria': '\u4fdd\u52a0\u5229\u4e9a',
+              'The Bahamas': '\u5df4\u54c8\u9a6c',
+              'Bosnia and Herz.': '\u6ce2\u65af\u5c3c\u4e9a\u548c\u9ed1\u585e\u54e5\u7ef4\u90a3',
+              'Belarus': '\u767d\u4fc4\u7f57\u65af',
+              'Belize': '\u4f2f\u5229\u5179',
+              'Bermuda': '\u767e\u6155\u5927',
+              'Bolivia': '\u73bb\u5229\u7ef4\u4e9a',
+              'Brazil': '\u5df4\u897f',
+              'Brunei': '\u6587\u83b1',
+              'Bhutan': '\u4e0d\u4e39',
+              'Botswana': '\u535a\u8328\u74e6\u7eb3',
+              'Central African Rep.': '\u4e2d\u975e\u5171\u548c\u56fd',
+              'Canada': '\u52a0\u62ff\u5927',
+              'Switzerland': '\u745e\u58eb',
+              'Chile': '\u667a\u5229',
+              'China': '\u4e2d\u56fd',
+              'Ivory Coast': '\u8c61\u7259\u6d77\u5cb8',
+              'Cameroon': '\u5580\u9ea6\u9686',
+              'Dem. Rep. Congo': '\u521a\u679c\uff08\u91d1\uff09',
+              'Congo': '\u521a\u679c\uff08\u5e03\uff09',
+              'Colombia': '\u54e5\u4f26\u6bd4\u4e9a',
+              'Costa Rica': '\u54e5\u65af\u8fbe\u9ece\u52a0',
+              'Cuba': '\u53e4\u5df4',
+              'N. Cyprus': '\u5317\u585e\u6d66\u8def\u65af',
+              'Cyprus': '\u585e\u6d66\u8def\u65af',
+              'Czech Rep.': '\u6377\u514b',
+              'Germany': '\u5fb7\u56fd',
+              'Djibouti': '\u5409\u5e03\u63d0',
+              'Denmark': '\u4e39\u9ea6',
+              'Algeria': '\u963f\u5c14\u53ca\u5229\u4e9a',
+              'Ecuador': '\u5384\u74dc\u591a\u5c14',
+              'Egypt': '\u57c3\u53ca',
+              'Eritrea': '\u5384\u7acb\u7279\u91cc\u4e9a',
+              'Spain': '\u897f\u73ed\u7259',
+              'Estonia': '\u7231\u6c99\u5c3c\u4e9a',
+              'Ethiopia': '\u57c3\u585e\u4fc4\u6bd4\u4e9a',
+              'Finland': '\u82ac\u5170',
+              'Fiji': '\u6590',
+              'Falkland Islands': '\u798f\u514b\u5170\u7fa4\u5c9b',
+              'France': '\u6cd5\u56fd',
+              'Gabon': '\u52a0\u84ec',
+              'United Kingdom': '\u82f1\u56fd',
+              'Georgia': '\u683c\u9c81\u5409\u4e9a',
+              'Ghana': '\u52a0\u7eb3',
+              'Guinea': '\u51e0\u5185\u4e9a',
+              'Gambia': '\u5188\u6bd4\u4e9a',
+              'Guinea Bissau': '\u51e0\u5185\u4e9a\u6bd4\u7ecd',
+              'Eq. Guinea': '\u8d64\u9053\u51e0\u5185\u4e9a',
+              'Greece': '\u5e0c\u814a',
+              'Greenland': '\u683c\u9675\u5170',
+              'Guatemala': '\u5371\u5730\u9a6c\u62c9',
+              'French Guiana': '\u6cd5\u5c5e\u572d\u4e9a\u90a3',
+              'Guyana': '\u572d\u4e9a\u90a3',
+              'Honduras': '\u6d2a\u90fd\u62c9\u65af',
+              'Croatia': '\u514b\u7f57\u5730\u4e9a',
+              'Haiti': '\u6d77\u5730',
+              'Hungary': '\u5308\u7259\u5229',
+              'Indonesia': '\u5370\u5ea6\u5c3c\u897f\u4e9a',
+              'India': '\u5370\u5ea6',
+              'Ireland': '\u7231\u5c14\u5170',
+              'Iran': '\u4f0a\u6717',
+              'Iraq': '\u4f0a\u62c9\u514b',
+              'Iceland': '\u51b0\u5c9b',
+              'Israel': '\u4ee5\u8272\u5217',
+              'Italy': '\u610f\u5927\u5229',
+              'Jamaica': '\u7259\u4e70\u52a0',
+              'Jordan': '\u7ea6\u65e6',
+              'Japan': '\u65e5\u672c\u672c\u571f',
+              'Kazakhstan': '\u54c8\u8428\u514b\u65af\u5766',
+              'Kenya': '\u80af\u5c3c\u4e9a',
+              'Kyrgyzstan': '\u5409\u5c14\u5409\u65af\u65af\u5766',
+              'Cambodia': '\u67ec\u57d4\u5be8',
+              'Korea': '\u97e9\u56fd',
+              'Kosovo': '\u79d1\u7d22\u6c83',
+              'Kuwait': '\u79d1\u5a01\u7279',
+              'Lao PDR': '\u8001\u631d',
+              'Lebanon': '\u9ece\u5df4\u5ae9',
+              'Liberia': '\u5229\u6bd4\u91cc\u4e9a',
+              'Libya': '\u5229\u6bd4\u4e9a',
+              'Sri Lanka': '\u65af\u91cc\u5170\u5361',
+              'Lesotho': '\u83b1\u7d22\u6258',
+              'Lithuania': '\u7acb\u9676\u5b9b',
+              'Luxembourg': '\u5362\u68ee\u5821',
+              'Latvia': '\u62c9\u8131\u7ef4\u4e9a',
+              'Morocco': '\u6469\u6d1b\u54e5',
+              'Moldova': '\u6469\u5c14\u591a\u74e6',
+              'Madagascar': '\u9a6c\u8fbe\u52a0\u65af\u52a0',
+              'Mexico': '\u58a8\u897f\u54e5',
+              'Macedonia': '\u9a6c\u5176\u987f',
+              'Mali': '\u9a6c\u91cc',
+              'Myanmar': '\u7f05\u7538',
+              'Montenegro': '\u9ed1\u5c71',
+              'Mongolia': '\u8499\u53e4',
+              'Mozambique': '\u83ab\u6851\u6bd4\u514b',
+              'Mauritania': '\u6bdb\u91cc\u5854\u5c3c\u4e9a',
+              'Malawi': '\u9a6c\u62c9\u7ef4',
+              'Malaysia': '\u9a6c\u6765\u897f\u4e9a',
+              'Namibia': '\u7eb3\u7c73\u6bd4\u4e9a',
+              'New Caledonia': '\u65b0\u5580\u91cc\u591a\u5c3c\u4e9a',
+              'Niger': '\u5c3c\u65e5\u5c14',
+              'Nigeria': '\u5c3c\u65e5\u5229\u4e9a',
+              'Nicaragua': '\u5c3c\u52a0\u62c9\u74dc',
+              'Netherlands': '\u8377\u5170',
+              'Norway': '\u632a\u5a01',
+              'Nepal': '\u5c3c\u6cca\u5c14',
+              'New Zealand': '\u65b0\u897f\u5170',
+              'Oman': '\u963f\u66fc',
+              'Pakistan': '\u5df4\u57fa\u65af\u5766',
+              'Panama': '\u5df4\u62ff\u9a6c',
+              'Peru': '\u79d8\u9c81',
+              'Philippines': '\u83f2\u5f8b\u5bbe',
+              'Papua New Guinea': '\u5df4\u5e03\u4e9a\u65b0\u51e0\u5185\u4e9a',
+              'Poland': '\u6ce2\u5170',
+              'Puerto Rico': '\u6ce2\u591a\u9ece\u5404',
+              'Dem. Rep. Korea': '\u671d\u9c9c',
+              'Portugal': '\u8461\u8404\u7259',
+              'Paraguay': '\u5df4\u62c9\u572d',
+              'Qatar': '\u5361\u5854\u5c14',
+              'Romania': '\u7f57\u9a6c\u5c3c\u4e9a',
+              'Russia': '\u4fc4\u7f57\u65af',
+              'Rwanda': '\u5362\u65fa\u8fbe',
+              'W. Sahara': '\u897f\u6492\u54c8\u62c9',
+              'Saudi Arabia': '\u6c99\u7279\u963f\u62c9\u4f2f',
+              'Sudan': '\u82cf\u4e39',
+              'S. Sudan': '\u5357\u82cf\u4e39',
+              'Senegal': '\u585e\u5185\u52a0\u5c14',
+              'Solomon Is.': '\u6240\u7f57\u95e8\u7fa4\u5c9b',
+              'Sierra Leone': '\u585e\u62c9\u5229\u6602',
+              'El Salvador': '\u8428\u5c14\u74e6\u591a',
+              'Somaliland': '\u7d22\u9a6c\u91cc\u5170',
+              'Somalia': '\u7d22\u9a6c\u91cc',
+              'Serbia': '\u585e\u5c14\u7ef4\u4e9a',
+              'Suriname': '\u82cf\u91cc\u5357',
+              'Slovakia': '\u65af\u6d1b\u4f10\u514b',
+              'Slovenia': '\u65af\u6d1b\u6587\u5c3c\u4e9a',
+              'Sweden': '\u745e\u5178',
+              'Swaziland': '\u65af\u5a01\u58eb\u5170',
+              'Syria': '\u53d9\u5229\u4e9a',
+              'Chad': '\u4e4d\u5f97',
+              'Togo': '\u591a\u54e5',
+              'Thailand': '\u6cf0\u56fd',
+              'Tajikistan': '\u5854\u5409\u514b\u65af\u5766',
+              'Turkmenistan': '\u571f\u5e93\u66fc\u65af\u5766',
+              'East Timor': '\u4e1c\u5e1d\u6c76',
+              'Trinidad and Tobago': '\u7279\u91cc\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5',
+              'Tunisia': '\u7a81\u5c3c\u65af',
+              'Turkey': '\u571f\u8033\u5176',
+              'Tanzania': '\u5766\u6851\u5c3c\u4e9a',
+              'Uganda': '\u4e4c\u5e72\u8fbe',
+              'Ukraine': '\u4e4c\u514b\u5170',
+              'Uruguay': '\u4e4c\u62c9\u572d',
+              'United States': '\u7f8e\u56fd',
+              'Uzbekistan': '\u4e4c\u5179\u522b\u514b\u65af\u5766',
+              'Venezuela': '\u59d4\u5185\u745e\u62c9',
+              'Vietnam': '\u8d8a\u5357',
+              'Vanuatu': '\u74e6\u52aa\u963f\u56fe',
+              'West Bank': '\u897f\u5cb8',
+              'Yemen': '\u4e5f\u95e8',
+              'South Africa': '\u5357\u975e',
+              'Zambia': '\u8d5e\u6bd4\u4e9a',
+              'Zimbabwe': '\u6d25\u5df4\u5e03\u97e6'
+            },
+            'showLegendSymbol': false,
+            'emphasis': {},
+            'rippleEffect': {
+              'show': true,
+              'brushType': 'stroke',
+              'scale': 2.5,
+              'period': 4
+            },
+            'textStyle_opts': {
+              'fontSize': 12
+            }
+          }
+        ],
+        'legend': [
+          {
+            'data': [
+              '\u786e\u8bca\u75c5\u4f8b'
+            ],
+            'selected': {
+              '\u786e\u8bca\u75c5\u4f8b': true
+            },
+            'show': false,
+            'padding': 5,
+            'itemGap': 10,
+            'itemWidth': 25,
+            'itemHeight': 14
+          }
+        ],
+        'tooltip': {
+          'show': true,
+          'trigger': 'item',
+          'triggerOn': 'mousemove|click',
+          'axisPointer': {
+            'type': 'line'
+          },
+          'textStyle': {
+            'fontSize': 14
+          },
+          'borderWidth': 0
+        },
+        'title': [
+          {
+            'text': '\u56fd\u5916\u7d2f\u8ba1\u786e\u8bca\u75c5\u4f8b',
+            'left': 'center',
+            'padding': 5,
+            'itemGap': 10
+          }
+        ],
+        'visualMap': {
+          'show': true,
+          'type': 'piecewise',
+          'min': 0,
+          'max': 100,
+          'inRange': {
+            'color': [
+              '#50a3ba',
+              '#eac763',
+              '#d94e5d'
+            ]
+          },
+          'calculable': true,
+          'inverse': false,
+          'splitNumber': 5,
+          'orient': 'vertical',
+          'showLabel': true,
+          'itemWidth': 20,
+          'itemHeight': 14,
+          'borderWidth': 0,
+          'pieces': [
+            {
+              'min': 200000,
+              'label': '>=200000\u4eba',
+              'color': '#300000'
+            },
+            {
+              'min': 100000,
+              'max': 199999,
+              'label': '100000-199999\u4eba',
+              'color': '#580000'
+            },
+            {
+              'min': 10000,
+              'max': 99999,
+              'label': '10000-99999\u4eba',
+              'color': '#880000'
+            },
+            {
+              'min': 5000,
+              'max': 9999,
+              'label': '5000-9999\u4eba',
+              'color': '#F80000'
+            },
+            {
+              'min': 1000,
+              'max': 4999,
+              'label': '1000-4999\u4eba',
+              'color': '#FF6633'
+            },
+            {
+              'min': 100,
+              'max': 999,
+              'label': '100-999\u4eba',
+              'color': '#FF9966'
+            },
+            {
+              'min': 1,
+              'max': 99,
+              'label': '1-99\u4eba',
+              'color': '#FFCC00'
+            }
+          ]
+        }
+      }
+      chart_a2a64d51ec4c410588e323e86cad0244.setOption(option_a2a64d51ec4c410588e323e86cad0244)
+    </script>
+    <div id="a2a95f50111341268f3f730b02b2c131" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+      var chart_a2a95f50111341268f3f730b02b2c131 = echarts.init(
+        document.getElementById('a2a95f50111341268f3f730b02b2c131'), 'white', {renderer: 'canvas'})
+      var option_a2a95f50111341268f3f730b02b2c131 = {
+        'animation': true,
+        'animationThreshold': 2000,
+        'animationDuration': 1000,
+        'animationEasing': 'cubicOut',
+        'animationDelay': 0,
+        'animationDurationUpdate': 300,
+        'animationEasingUpdate': 'cubicOut',
+        'animationDelayUpdate': 0,
+        'color': [
+          '#c23531',
+          '#2f4554',
+          '#61a0a8',
+          '#d48265',
+          '#749f83',
+          '#ca8622',
+          '#bda29a',
+          '#6e7074',
+          '#546570',
+          '#c4ccd3',
+          '#f05b72',
+          '#ef5b9c',
+          '#f47920',
+          '#905a3d',
+          '#fab27b',
+          '#2a5caa',
+          '#444693',
+          '#726930',
+          '#b2d235',
+          '#6d8346',
+          '#ac6767',
+          '#1d953f',
+          '#6950a1',
+          '#918597'
+        ],
+        'series': [
+          {
+            'type': 'wordCloud',
+            'name': '\u75ab\u60c5\u70ed\u70b9',
+            'shape': 'circle',
+            'rotationRange': [
+              -90,
+              90
+            ],
+            'rotationStep': 45,
+            'girdSize': 20,
+            'sizeRange': [
+              15,
+              80
+            ],
+            'data': [
+              {
+                'name': '\u7f8e\u56fd',
+                'value': 609516,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(127,56,147)'
+                  }
+                }
+              },
+              {
+                'name': '\u897f\u73ed\u7259',
+                'value': 174060,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(81,50,24)'
+                  }
+                }
+              },
+              {
+                'name': '\u610f\u5927\u5229',
+                'value': 162488,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(117,115,56)'
+                  }
+                }
+              },
+              {
+                'name': '\u6cd5\u56fd',
+                'value': 131362,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(52,140,7)'
+                  }
+                }
+              },
+              {
+                'name': '\u5fb7\u56fd',
+                'value': 131359,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(134,50,160)'
+                  }
+                }
+              },
+              {
+                'name': '\u82f1\u56fd',
+                'value': 94845,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(59,64,6)'
+                  }
+                }
+              },
+              {
+                'name': '\u4f0a\u6717',
+                'value': 74877,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(149,7,79)'
+                  }
+                }
+              },
+              {
+                'name': '\u571f\u8033\u5176',
+                'value': 65111,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(93,15,127)'
+                  }
+                }
+              },
+              {
+                'name': '\u6bd4\u5229\u65f6',
+                'value': 31119,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(160,16,123)'
+                  }
+                }
+              },
+              {
+                'name': '\u8377\u5170',
+                'value': 27580,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(87,17,101)'
+                  }
+                }
+              },
+              {
+                'name': '\u52a0\u62ff\u5927',
+                'value': 27063,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(68,18,39)'
+                  }
+                }
+              },
+              {
+                'name': '\u745e\u58eb',
+                'value': 25936,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(111,57,88)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u897f',
+                'value': 25684,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(83,91,16)'
+                  }
+                }
+              },
+              {
+                'name': '\u4fc4\u7f57\u65af',
+                'value': 24490,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(37,66,77)'
+                  }
+                }
+              },
+              {
+                'name': '\u8461\u8404\u7259',
+                'value': 17448,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(35,142,69)'
+                  }
+                }
+              },
+              {
+                'name': '\u5965\u5730\u5229',
+                'value': 14226,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(90,149,150)'
+                  }
+                }
+              },
+              {
+                'name': '\u4ee5\u8272\u5217',
+                'value': 12200,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(64,75,92)'
+                  }
+                }
+              },
+              {
+                'name': '\u5370\u5ea6',
+                'value': 11555,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(95,107,42)'
+                  }
+                }
+              },
+              {
+                'name': '\u7231\u5c14\u5170',
+                'value': 11479,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(56,160,18)'
+                  }
+                }
+              },
+              {
+                'name': '\u745e\u5178',
+                'value': 11445,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(145,72,103)'
+                  }
+                }
+              },
+              {
+                'name': '\u97e9\u56fd',
+                'value': 10591,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(118,142,0)'
+                  }
+                }
+              },
+              {
+                'name': '\u79d8\u9c81',
+                'value': 10303,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(82,149,34)'
+                  }
+                }
+              },
+              {
+                'name': '\u65e5\u672c\u672c\u571f',
+                'value': 8100,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(145,90,131)'
+                  }
+                }
+              },
+              {
+                'name': '\u667a\u5229',
+                'value': 7917,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(149,62,60)'
+                  }
+                }
+              },
+              {
+                'name': '\u5384\u74dc\u591a\u5c14',
+                'value': 7603,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(18,18,36)'
+                  }
+                }
+              },
+              {
+                'name': '\u6ce2\u5170',
+                'value': 7202,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(95,97,31)'
+                  }
+                }
+              },
+              {
+                'name': '\u7f57\u9a6c\u5c3c\u4e9a',
+                'value': 6879,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(21,15,112)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e39\u9ea6',
+                'value': 6706,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(134,61,157)'
+                  }
+                }
+              },
+              {
+                'name': '\u632a\u5a01',
+                'value': 6623,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(21,8,46)'
+                  }
+                }
+              },
+              {
+                'name': '\u6fb3\u5927\u5229\u4e9a',
+                'value': 6440,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(116,118,87)'
+                  }
+                }
+              },
+              {
+                'name': '\u6377\u514b',
+                'value': 6151,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(69,141,110)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u57fa\u65af\u5766',
+                'value': 5988,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(74,62,84)'
+                  }
+                }
+              },
+              {
+                'name': '\u58a8\u897f\u54e5',
+                'value': 5399,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(9,114,130)'
+                  }
+                }
+              },
+              {
+                'name': '\u6c99\u7279\u963f\u62c9\u4f2f',
+                'value': 5369,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(156,142,12)'
+                  }
+                }
+              },
+              {
+                'name': '\u83f2\u5f8b\u5bbe',
+                'value': 5223,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(115,0,136)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u6765\u897f\u4e9a',
+                'value': 4987,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(137,50,120)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u8054\u914b',
+                'value': 4933,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(78,37,18)'
+                  }
+                }
+              },
+              {
+                'name': '\u5370\u5ea6\u5c3c\u897f\u4e9a',
+                'value': 4839,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(93,110,2)'
+                  }
+                }
+              },
+              {
+                'name': '\u585e\u5c14\u7ef4\u4e9a',
+                'value': 4465,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(101,158,98)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e4c\u514b\u5170',
+                'value': 3764,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(131,63,110)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u62ff\u9a6c',
+                'value': 3574,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(59,43,102)'
+                  }
+                }
+              },
+              {
+                'name': '\u5361\u5854\u5c14',
+                'value': 3428,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(127,0,145)'
+                  }
+                }
+              },
+              {
+                'name': '\u5362\u68ee\u5821',
+                'value': 3307,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(111,80,39)'
+                  }
+                }
+              },
+              {
+                'name': '\u591a\u7c73\u5c3c\u52a0',
+                'value': 3286,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(111,35,97)'
+                  }
+                }
+              },
+              {
+                'name': '\u767d\u4fc4\u7f57\u65af',
+                'value': 3281,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(56,95,78)'
+                  }
+                }
+              },
+              {
+                'name': '\u65b0\u52a0\u5761',
+                'value': 3252,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(139,35,96)'
+                  }
+                }
+              },
+              {
+                'name': '\u82ac\u5170',
+                'value': 3161,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(75,110,91)'
+                  }
+                }
+              },
+              {
+                'name': '\u54e5\u4f26\u6bd4\u4e9a',
+                'value': 2979,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(152,89,91)'
+                  }
+                }
+              },
+              {
+                'name': '\u6cf0\u56fd',
+                'value': 2643,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(148,21,76)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u6839\u5ef7',
+                'value': 2443,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(107,75,3)'
+                  }
+                }
+              },
+              {
+                'name': '\u5357\u975e',
+                'value': 2415,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(63,106,66)'
+                  }
+                }
+              },
+              {
+                'name': '\u57c3\u53ca',
+                'value': 2350,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(139,120,15)'
+                  }
+                }
+              },
+              {
+                'name': '\u5e0c\u814a',
+                'value': 2170,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(132,64,98)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u5c14\u53ca\u5229\u4e9a',
+                'value': 2070,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(95,34,68)'
+                  }
+                }
+              },
+              {
+                'name': '\u6469\u5c14\u591a\u74e6',
+                'value': 1934,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(89,82,159)'
+                  }
+                }
+              },
+              {
+                'name': '\u6469\u6d1b\u54e5',
+                'value': 1888,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(25,160,58)'
+                  }
+                }
+              },
+              {
+                'name': '\u51b0\u5c9b',
+                'value': 1720,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(62,69,132)'
+                  }
+                }
+              },
+              {
+                'name': '\u514b\u7f57\u5730\u4e9a',
+                'value': 1704,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(118,112,102)'
+                  }
+                }
+              },
+              {
+                'name': '\u5308\u7259\u5229',
+                'value': 1579,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(71,59,94)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u6797',
+                'value': 1528,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(45,142,131)'
+                  }
+                }
+              },
+              {
+                'name': '\u4f0a\u62c9\u514b',
+                'value': 1400,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(106,27,95)'
+                  }
+                }
+              },
+              {
+                'name': '\u65b0\u897f\u5170',
+                'value': 1386,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(133,105,49)'
+                  }
+                }
+              },
+              {
+                'name': '\u7231\u6c99\u5c3c\u4e9a',
+                'value': 1373,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(117,31,61)'
+                  }
+                }
+              },
+              {
+                'name': '\u79d1\u5a01\u7279',
+                'value': 1355,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(67,76,125)'
+                  }
+                }
+              },
+              {
+                'name': '\u54c8\u8428\u514b\u65af\u5766',
+                'value': 1275,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(101,91,102)'
+                  }
+                }
+              },
+              {
+                'name': '\u65af\u6d1b\u6587\u5c3c\u4e9a',
+                'value': 1220,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(76,153,115)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e4c\u5179\u522b\u514b\u65af\u5766',
+                'value': 1214,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(3,32,141)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u585e\u62dc\u7586',
+                'value': 1197,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(41,78,28)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e9a\u7f8e\u5c3c\u4e9a',
+                'value': 1111,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(131,128,125)'
+                  }
+                }
+              },
+              {
+                'name': '\u7acb\u9676\u5b9b',
+                'value': 1091,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(158,16,26)'
+                  }
+                }
+              },
+              {
+                'name': '\u6ce2\u9ed1',
+                'value': 1083,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(64,32,111)'
+                  }
+                }
+              },
+              {
+                'name': '\u5b5f\u52a0\u62c9',
+                'value': 1012,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(105,14,160)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u66fc',
+                'value': 910,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(76,52,47)'
+                  }
+                }
+              },
+              {
+                'name': '\u5317\u9a6c\u5176\u987f',
+                'value': 908,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(93,124,131)'
+                  }
+                }
+              },
+              {
+                'name': '\u5580\u9ea6\u9686',
+                'value': 848,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(90,114,102)'
+                  }
+                }
+              },
+              {
+                'name': '\u65af\u6d1b\u4f10\u514b',
+                'value': 835,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(146,87,101)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u5bcc\u6c57',
+                'value': 784,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(14,79,143)'
+                  }
+                }
+              },
+              {
+                'name': '\u53e4\u5df4',
+                'value': 766,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(154,50,104)'
+                  }
+                }
+              },
+              {
+                'name': '\u7a81\u5c3c\u65af',
+                'value': 747,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(22,89,28)'
+                  }
+                }
+              },
+              {
+                'name': '\u4fdd\u52a0\u5229\u4e9a',
+                'value': 735,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(93,108,5)'
+                  }
+                }
+              },
+              {
+                'name': '\u94bb\u77f3\u53f7\u90ae\u8f6e',
+                'value': 712,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(145,68,99)'
+                  }
+                }
+              },
+              {
+                'name': '\u585e\u6d66\u8def\u65af',
+                'value': 695,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(119,158,27)'
+                  }
+                }
+              },
+              {
+                'name': '\u62c9\u8131\u7ef4\u4e9a',
+                'value': 666,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(43,31,70)'
+                  }
+                }
+              },
+              {
+                'name': '\u5b89\u9053\u5c14',
+                'value': 659,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(113,54,147)'
+                  }
+                }
+              },
+              {
+                'name': '\u9ece\u5df4\u5ae9',
+                'value': 641,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(121,58,89)'
+                  }
+                }
+              },
+              {
+                'name': '\u79d1\u7279\u8fea\u74e6',
+                'value': 638,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(123,55,108)'
+                  }
+                }
+              },
+              {
+                'name': '\u52a0\u7eb3',
+                'value': 636,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(83,146,113)'
+                  }
+                }
+              },
+              {
+                'name': '\u54e5\u65af\u8fbe\u9ece\u52a0',
+                'value': 618,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(55,129,103)'
+                  }
+                }
+              },
+              {
+                'name': '\u5c3c\u65e5\u5c14',
+                'value': 570,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(94,60,81)'
+                  }
+                }
+              },
+              {
+                'name': '\u5e03\u57fa\u7eb3\u6cd5\u7d22',
+                'value': 528,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(156,72,112)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e4c\u62c9\u572d',
+                'value': 492,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(69,86,66)'
+                  }
+                }
+              },
+              {
+                'name': '\u963f\u5c14\u5df4\u5c3c\u4e9a',
+                'value': 475,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(42,4,141)'
+                  }
+                }
+              },
+              {
+                'name': '\u5409\u5c14\u5409\u65af\u65af\u5766',
+                'value': 449,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(17,125,83)'
+                  }
+                }
+              },
+              {
+                'name': '\u6d2a\u90fd\u62c9\u65af',
+                'value': 419,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(5,145,51)'
+                  }
+                }
+              },
+              {
+                'name': '\u7ea6\u65e6',
+                'value': 397,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(78,16,18)'
+                  }
+                }
+              },
+              {
+                'name': '\u73bb\u5229\u7ef4\u4e9a',
+                'value': 397,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(129,30,40)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u8033\u4ed6',
+                'value': 393,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(57,59,75)'
+                  }
+                }
+              },
+              {
+                'name': '\u5c3c\u65e5\u5229\u4e9a',
+                'value': 373,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(27,48,150)'
+                  }
+                }
+              },
+              {
+                'name': '\u5723\u9a6c\u529b\u8bfa',
+                'value': 372,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(12,59,19)'
+                  }
+                }
+              },
+              {
+                'name': '\u51e0\u5185\u4e9a',
+                'value': 363,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(9,23,115)'
+                  }
+                }
+              },
+              {
+                'name': '\u5409\u5e03\u63d0',
+                'value': 363,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(108,62,104)'
+                  }
+                }
+              },
+              {
+                'name': '\u6bdb\u91cc\u6c42\u65af',
+                'value': 324,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(37,76,86)'
+                  }
+                }
+              },
+              {
+                'name': '\u6ce2\u591a\u9ece\u5404',
+                'value': 316,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(7,7,125)'
+                  }
+                }
+              },
+              {
+                'name': '\u683c\u9c81\u5409\u4e9a',
+                'value': 306,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(102,120,108)'
+                  }
+                }
+              },
+              {
+                'name': '\u585e\u5185\u52a0\u5c14',
+                'value': 299,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(79,141,87)'
+                  }
+                }
+              },
+              {
+                'name': '\u9ed1\u5c71',
+                'value': 288,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(33,81,32)'
+                  }
+                }
+              },
+              {
+                'name': '\u8d8a\u5357',
+                'value': 267,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(125,41,132)'
+                  }
+                }
+              },
+              {
+                'name': '\u521a\u679c\uff08\u91d1\uff09',
+                'value': 241,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(129,48,96)'
+                  }
+                }
+              },
+              {
+                'name': '\u65af\u91cc\u5170\u5361',
+                'value': 233,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(47,107,155)'
+                  }
+                }
+              },
+              {
+                'name': '\u80af\u5c3c\u4e9a',
+                'value': 216,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(120,124,158)'
+                  }
+                }
+              },
+              {
+                'name': '\u59d4\u5185\u745e\u62c9',
+                'value': 197,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(146,123,140)'
+                  }
+                }
+              },
+              {
+                'name': '\u5371\u5730\u9a6c\u62c9',
+                'value': 180,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(73,65,153)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u52d2\u65af\u5766',
+                'value': 161,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(53,86,6)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u62c9\u572d',
+                'value': 161,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(144,28,63)'
+                  }
+                }
+              },
+              {
+                'name': '\u8428\u5c14\u74e6\u591a',
+                'value': 159,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(30,71,35)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u91cc',
+                'value': 144,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(77,17,131)'
+                  }
+                }
+              },
+              {
+                'name': '\u6587\u83b1',
+                'value': 136,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(94,151,158)'
+                  }
+                }
+              },
+              {
+                'name': '\u5362\u65fa\u8fbe',
+                'value': 134,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(75,47,76)'
+                  }
+                }
+              },
+              {
+                'name': '\u67ec\u57d4\u5be8',
+                'value': 122,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(36,98,143)'
+                  }
+                }
+              },
+              {
+                'name': '\u7279\u7acb\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5',
+                'value': 113,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(27,31,44)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u8fbe\u52a0\u65af\u52a0',
+                'value': 108,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(18,34,149)'
+                  }
+                }
+              },
+              {
+                'name': '\u7259\u4e70\u52a0',
+                'value': 105,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(96,90,151)'
+                  }
+                }
+              },
+              {
+                'name': '\u6469\u7eb3\u54e5',
+                'value': 93,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(96,60,82)'
+                  }
+                }
+              },
+              {
+                'name': '\u57c3\u585e\u4fc4\u6bd4\u4e9a',
+                'value': 82,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(69,100,28)'
+                  }
+                }
+              },
+              {
+                'name': '\u52a0\u84ec',
+                'value': 80,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(132,127,84)'
+                  }
+                }
+              },
+              {
+                'name': '\u5217\u652f\u6566\u58eb\u767b\u516c\u56fd',
+                'value': 79,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(69,64,64)'
+                  }
+                }
+              },
+              {
+                'name': '\u591a\u54e5',
+                'value': 77,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(83,88,48)'
+                  }
+                }
+              },
+              {
+                'name': '\u521a\u679c\uff08\u5e03\uff09',
+                'value': 74,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(73,11,56)'
+                  }
+                }
+              },
+              {
+                'name': '\u7f05\u7538',
+                'value': 74,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(76,130,59)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u5df4\u591a\u65af',
+                'value': 73,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(71,127,138)'
+                  }
+                }
+              },
+              {
+                'name': '\u7d22\u9a6c\u91cc',
+                'value': 60,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(141,11,3)'
+                  }
+                }
+              },
+              {
+                'name': '\u5229\u6bd4\u91cc\u4e9a',
+                'value': 59,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(123,128,84)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e4c\u5e72\u8fbe',
+                'value': 55,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(3,152,104)'
+                  }
+                }
+              },
+              {
+                'name': '\u5766\u6851\u5c3c\u4e9a',
+                'value': 53,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(126,90,145)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u54c8\u9a6c',
+                'value': 49,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(100,137,34)'
+                  }
+                }
+              },
+              {
+                'name': '\u572d\u4e9a\u90a3',
+                'value': 47,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(54,143,53)'
+                  }
+                }
+              },
+              {
+                'name': '\u8d5e\u6bd4\u4e9a',
+                'value': 45,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(128,109,63)'
+                  }
+                }
+              },
+              {
+                'name': '\u51e0\u5185\u4e9a\u6bd4\u7ecd',
+                'value': 43,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(58,14,158)'
+                  }
+                }
+              },
+              {
+                'name': '\u8d64\u9053\u51e0\u5185\u4e9a',
+                'value': 41,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(9,51,14)'
+                  }
+                }
+              },
+              {
+                'name': '\u6d77\u5730',
+                'value': 40,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(98,16,153)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u63d0\u5c3c\u514b\u5c9b',
+                'value': 37,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(6,82,6)'
+                  }
+                }
+              },
+              {
+                'name': '\u5229\u6bd4\u4e9a',
+                'value': 35,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(136,34,3)'
+                  }
+                }
+              },
+              {
+                'name': '\u8d1d\u5b81',
+                'value': 35,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(3,106,43)'
+                  }
+                }
+              },
+              {
+                'name': '\u5384\u7acb\u7279\u91cc\u4e9a',
+                'value': 35,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(152,102,12)'
+                  }
+                }
+              },
+              {
+                'name': '\u82cf\u4e39',
+                'value': 32,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(85,88,98)'
+                  }
+                }
+              },
+              {
+                'name': '\u8499\u53e4',
+                'value': 30,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(105,56,45)'
+                  }
+                }
+              },
+              {
+                'name': '\u53d9\u5229\u4e9a',
+                'value': 29,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(148,76,148)'
+                  }
+                }
+              },
+              {
+                'name': '\u83ab\u6851\u6bd4\u514b',
+                'value': 28,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(2,20,114)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e4d\u5f97',
+                'value': 23,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(121,50,142)'
+                  }
+                }
+              },
+              {
+                'name': '\u5b89\u63d0\u74dc\u548c\u5df4\u5e03\u8fbe',
+                'value': 23,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(52,121,154)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u5c14\u4ee3\u592b',
+                'value': 21,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(67,2,17)'
+                  }
+                }
+              },
+              {
+                'name': '\u8001\u631d',
+                'value': 19,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(105,28,79)'
+                  }
+                }
+              },
+              {
+                'name': '\u5b89\u54e5\u62c9',
+                'value': 19,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(22,93,8)'
+                  }
+                }
+              },
+              {
+                'name': '\u6d25\u5df4\u5e03\u97e6',
+                'value': 18,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(98,80,42)'
+                  }
+                }
+              },
+              {
+                'name': '\u4f2f\u5229\u5179',
+                'value': 18,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(3,137,132)'
+                  }
+                }
+              },
+              {
+                'name': '\u6590\u6d4e',
+                'value': 16,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(158,41,33)'
+                  }
+                }
+              },
+              {
+                'name': '\u9a6c\u62c9\u7ef4',
+                'value': 16,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(61,148,56)'
+                  }
+                }
+              },
+              {
+                'name': '\u7eb3\u7c73\u6bd4\u4e9a',
+                'value': 16,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(67,80,133)'
+                  }
+                }
+              },
+              {
+                'name': '\u591a\u7c73\u5c3c\u514b',
+                'value': 16,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(94,4,4)'
+                  }
+                }
+              },
+              {
+                'name': '\u5c3c\u6cca\u5c14',
+                'value': 16,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(55,15,114)'
+                  }
+                }
+              },
+              {
+                'name': '\u5723\u5362\u897f\u4e9a',
+                'value': 15,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(73,113,26)'
+                  }
+                }
+              },
+              {
+                'name': '\u65af\u5a01\u58eb\u5170',
+                'value': 15,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(91,13,57)'
+                  }
+                }
+              },
+              {
+                'name': '\u5723\u57fa\u8328\u548c\u5c3c\u7ef4\u65af',
+                'value': 14,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(135,130,84)'
+                  }
+                }
+              },
+              {
+                'name': '\u683c\u6797\u7eb3\u8fbe',
+                'value': 14,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(83,124,142)'
+                  }
+                }
+              },
+              {
+                'name': '\u535a\u8328\u74e6\u7eb3',
+                'value': 13,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(94,101,149)'
+                  }
+                }
+              },
+              {
+                'name': '\u5723\u6587\u68ee\u7279\u548c\u683c\u6797\u7eb3\u4e01\u65af',
+                'value': 12,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(33,134,56)'
+                  }
+                }
+              },
+              {
+                'name': '\u585e\u62c9\u5229\u6602',
+                'value': 11,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(63,143,117)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e2d\u975e\u5171\u548c\u56fd',
+                'value': 11,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(138,153,33)'
+                  }
+                }
+              },
+              {
+                'name': '\u585e\u820c\u5c14',
+                'value': 11,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(6,126,33)'
+                  }
+                }
+              },
+              {
+                'name': '\u4f5b\u5f97\u89d2',
+                'value': 11,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(102,91,28)'
+                  }
+                }
+              },
+              {
+                'name': '\u82cf\u91cc\u5357',
+                'value': 10,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(94,8,49)'
+                  }
+                }
+              },
+              {
+                'name': '\u5188\u6bd4\u4e9a',
+                'value': 9,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(127,56,81)'
+                  }
+                }
+              },
+              {
+                'name': '\u5c3c\u52a0\u62c9\u74dc',
+                'value': 9,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(74,55,73)'
+                  }
+                }
+              },
+              {
+                'name': '\u68b5\u8482\u5188',
+                'value': 8,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(150,26,31)'
+                  }
+                }
+              },
+              {
+                'name': '\u6bdb\u91cc\u5854\u5c3c\u4e9a',
+                'value': 7,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(102,152,133)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e1c\u5e1d\u6c76',
+                'value': 6,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(86,88,96)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e0d\u4e39',
+                'value': 5,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(125,47,106)'
+                  }
+                }
+              },
+              {
+                'name': '\u5e03\u9686\u8fea',
+                'value': 5,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(45,157,1)'
+                  }
+                }
+              },
+              {
+                'name': '\u5df4\u5e03\u4e9a\u65b0\u51e0\u5185\u4e9a',
+                'value': 2,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(70,63,21)'
+                  }
+                }
+              },
+              {
+                'name': '\u4e5f\u95e8',
+                'value': 1,
+                'textStyle': {
+                  'normal': {
+                    'color': 'rgb(34,0,10)'
+                  }
+                }
+              }
+            ],
+            'drawOutOfBound': false,
+            'textStyle': {
+              'emphasis': {}
+            }
+          }
+        ],
+        'legend': [
+          {
+            'data': [],
+            'selected': {},
+            'show': true,
+            'padding': 5,
+            'itemGap': 10,
+            'itemWidth': 25,
+            'itemHeight': 14
+          }
+        ],
+        'tooltip': {
+          'show': true,
+          'trigger': 'item',
+          'triggerOn': 'mousemove|click',
+          'axisPointer': {
+            'type': 'line'
+          },
+          'textStyle': {
+            'fontSize': 14
+          },
+          'borderWidth': 0
+        },
+        'title': [
+          {
+            'text': '\u75ab\u60c5\u91cd\u707e\u56fd\u5bb6\u5206\u6790',
+            'padding': 5,
+            'itemGap': 10,
+            'textStyle': {
+              'fontSize': 23
+            }
+          }
+        ]
+      }
+      chart_a2a95f50111341268f3f730b02b2c131.setOption(option_a2a95f50111341268f3f730b02b2c131)
+    </script>
+</div>
+
+<script>
+</script>
+<script>
+  (function () {
+    containers = document.getElementsByClassName('chart-container')
+    if (containers.length > 0) {
+      containers[0].style.display = 'block'
+    }
+  })()
+
+  function showChart (evt, chartID) {
+    let containers = document.getElementsByClassName('chart-container')
+    for (let i = 0; i < containers.length; i++) {
+      containers[i].style.display = 'none'
+    }
+
+    let tablinks = document.getElementsByClassName('tablinks')
+    for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = 'tablinks'
+    }
+
+    document.getElementById(chartID).style.display = 'block'
+    evt.currentTarget.className += ' active'
+  }
+</script>
+</body>
+</html>

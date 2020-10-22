@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            height: 700px;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            echarts: 'http://echarts.baidu.com/build/dist'
+        }
+    });
+    require(
+        ['echarts', 'echarts/chart/模板名'],
+        function (ec){
+            var mychart = ec.init(document.getElementById('main'));
+            var option = {
+
+            };
+            mychart.setOption(option);
+        }
+
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>radar</title>
+    <script src="echarts.js"></script>
+</head>
+<body>
+<div id="main" style="height: 500px"></div>
+<script type="text/javascript">
+  var mychart = echarts.init(document.getElementById('main'))
+  var option = {
+    title: {
+      text: '预算vs开销',
+      subtext: '纯属虚构',
+      x: "center",
+      y: "top"
+    },
+
+    legend: {
+      orient: 'vertical',
+      x: 'right',
+      y: 'bottom',
+      data: ['预算', '开销']
+    },
+    tooltip: {
+      trigger: 'item'
+    },
+    radar: {
+      // shape: 'circle',
+      name: {
+        textStyle: {
+          color: '#fff',
+          backgroundColor: '#999',
+          borderRadius: 3,
+          padding: [3, 10]
+        }
+      },
+      indicator: [
+        {name: '销售', max: 65000},
+        {name: '管理', max: 16000},
+        {name: '信息技术', max: 30000},
+        {name: '客服', max: 38000},
+        {name: '研发', max: 52000},
+        {name: '市场', max: 25000}
+      ]
+    },
+
+    series: [{
+      name: '预算 vs 开销',
+      type: 'radar',
+      itemStyle: {normal: {areaStyle: {type: 'default'}}},
+      // areaStyle: {normal: {}},
+      data: [
+        {
+          value: [4300, 10000, 28000, 35000, 30000, 19000],
+          name: '预算',
+          label: {
+            normal: {
+              show: true,
+              formatter: function (params) {
+                return params.value
+              }
+            }
+          }
+        },
+        {
+          value: [26400, 14524, 34222, 35420, 58420, 21000],
+          name: '开销',
+          label: {
+            normal: {
+              show: true,
+              formatter: function (params) {
+                return params.value
+              }
+            }
+          }
+        }
+      ]
+    }]
+
+  }
+  mychart.setOption(option)
+</script>
+
+</body>
+</html>

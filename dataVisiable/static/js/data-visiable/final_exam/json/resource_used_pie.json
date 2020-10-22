@@ -1,0 +1,16 @@
+{
+  "status": 200,
+  "message": "ok",
+  "data": [
+    {"value": "5.42",
+      "name": "cpuInfo"
+    },
+    {"value": "64.58",
+      "name": "ramInfo"
+    },
+    {"value": "20.5",
+      "name": "fileInfo"
+    }
+  ],
+  "accessToken": null
+}

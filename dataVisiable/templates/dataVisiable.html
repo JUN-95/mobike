@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影数据展示</title>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/jq.js"></script>
+    <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../static/js/echarts-wordcloud.min.js"></script>
+    <script src="../static/js/china.js"></script>
+    <script src="../static/js/world.js"></script>
+    <link rel="stylesheet" href="../static/css/index_css.css">
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+</head>
+<body>
+
+
+<header id="header">
+    <p class="header-title">电影数据展示</p>
+    <div class="header-info header-info-l">
+        数据来源:IMDB影视
+        <div class="header-info-l-weather-temperature">
+
+            <p class="header-info-l-weather">天气情况</p>
+            <p class="header-info-l-temperature">温度范围</p>
+
+        </div>
+
+    </div>
+    <div class="header-info header-info-r">
+
+        <div class="header-info-r-time"></div>
+        <div class="header-info-r-day-year">
+            <p class="header-info-r-day">今天是星期几</p>
+            <p class="header-info-r-year">这是具体日期</p>
+        </div>
+
+
+    </div>
+
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="sex" style="height: 650px"></div>
+            <script>
+                const gender_chart = echarts.init(document.getElementById('sex'));
+                $.post('/zhuyan', function (data) {
+                    data = data["dis"];
+                    const sex_option = {
+                        title: {
+                            text: '骑行距离数量',
+                            subtext: 'mobike',
+                            textStyle: {
+                                color: "white",
+                                fontSize: 15
+                            }
+                        },
+                        legend: {
+                            data: ["距离"]
+                        },
+                        dataZoom: [
+                            {
+                                type: 'slider',
+                                show: true,
+                                xAxisIndex: [0],
+                                start: 1,
+                                end: 35
+                            },
+                            {
+                                type: 'slider',
+                                show: true,
+                                yAxisIndex: [0],
+                                left: '93%',
+                                start: 29,
+                                end: 36
+                            },
+                            {
+                                type: 'inside',
+                                xAxisIndex: [0],
+                                start: 1,
+                                end: 35
+                            },
+                            {
+                                type: 'inside',
+                                yAxisIndex: [0],
+                                start: 29,
+                                end: 36
+                            }
+                        ],
+                        xAxis: [{
+                            textStyle: {
+                                color: "white",
+                                fontSize: 13
+                            },
+                            type: 'value',
+                            scale: true,
+                            axisLabel: {
+                                show: true,
+                                formatter: '{value}km',
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 13
+                                }
+                            }
+                        }],
+                        yAxis: [{
+                            textStyle: {
+                                color: "white",
+                                fontSize: 13
+                            },
+                            type: 'value',
+                            scale: true,
+                            axisLabel: {
+                                show: true,
+                                formatter: '{value}',
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 13
+                                }
+                            }
+                        }],
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                show: true,
+                                type: 'cross',
+                                linesStyle: {
+                                    type: 'dashed',
+                                    width: 1
+                                }
+                            },
+                            formatter: "（骑行距离（km），数量）:（{c}）"
+
+                        },
+                        series: [{
+                            symbolSize: 6,   // 定义散点的大小
+                            name: '距离',
+                            type: 'scatter',
+                            data: data,
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            },
+
+                            // markLine: {
+                            //     data: {type: 'average', name: '平均值'}
+                            // }
+                        }
+                        ]
+
+                    };
+                    gender_chart.setOption(sex_option);
+                    // console.log(data);
+
+                });
+
+            </script>
+
+        </div>
+        <div class="col-md-3">
+            <div id="wordCloud" style="height: 650px"></div>
+
+
+            <script type="text/javascript">
+
+                var wordcloud_chart = echarts.init(document.getElementById('wordCloud'));
+                $.post("/daoyan", function (data) {
+                    data = data["loc"];
+                    const wordCloudOption = {
+                            title: {
+                                text: '空闲单车位置分布',
+                                subtext: 'mobike',
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 15
+                                }
+                            },
+                            legend: {
+                                data: ["位置分布"]
+                            },
+                            xAxis: [{
+
+                                type: 'value',
+                                scale: true,
+                                axisLabel: {
+                                    show: true,
+                                    formatter: '{value}',
+                                    textStyle: {
+                                        color: "white",
+                                        fontSize: 13
+                                    }
+                                }
+                            }
+                            ],
+                            yAxis: [{
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 13
+                                },
+                                type: 'value',
+                                scale: true,
+                                axisLabel: {
+                                    show: true,
+                                    formatter: '{value}',
+                                    textStyle: {
+                                        color: "white",
+                                        fontSize: 13
+                                    }
+                                }
+                            }],
+                            tooltip:
+                                {
+                                    trigger: 'axis',
+                                    axisPointer:
+                                        {
+                                            show: true,
+                                            type:
+                                                'cross',
+                                            linesStyle:
+                                                {
+                                                    type: 'dashed',
+                                                    width:
+                                                        1
+                                                }
+                                        }
+                                    ,
+                                    formatter: "（经度,纬度）:({c})"
+
+                                }
+                            ,
+                            series: [{
+                                symbolSize: 6,   // 定义散点的大小
+                                name: '位置分布',
+                                type: 'scatter',
+                                data: data,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+
+                                // markLine: {
+                                //     data: {type: 'average', name: '平均值'}
+                                // }
+                            }
+                            ]
+
+                        }
+                    ;
+
+                    wordcloud_chart.setOption(wordCloudOption);
+
+                });
+
+            </script>
+
+        </div>
+
+        <div class="col-md-5">
+
+
+            <div id="certification" style="height: 650px;"></div>
+            <script type="text/javascript">
+
+                const certificationBar = echarts.init(document.getElementById('certification'));
+                $.post("/sortedTypeClassify", function (data) {
+                    const certification_res = [];
+
+                    const certificationOption = {
+                        title: {
+                            text: '一天不同时间段的骑行数量',
+                            textStyle: {
+                                fontSize: 22,
+                                color: "white"
+                            }
+                        },
+                        legend: {
+                            data: ["类型"],
+                            textStyle: {
+                                fontSize: 15,
+                                color: "white"
+                            },
+                            right: 20
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: data.cert_res,
+                                color: "white",
+                                axisLabel: {
+                                    show: true,
+                                    textStyle: {
+                                        formatter: '{value}h',
+                                        color: "white",
+                                        fontSize: 18
+                                    },
+                                    interval: 0  // 横坐标名全显示
+                                }
+
+                            }
+                        ],
+                        yAxis: {
+                            type: 'value',
+                            axisLabel: {
+                                show: true,
+                                formatter: '{value}',
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 13
+                                }
+                            }
+                        },
+                        calculable: 'true',
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "骑行时间段(h)：{b},:数量：{c}"
+                        },
+
+                        series: [
+                            {
+                                name: '数量',
+                                type: 'bar',
+
+                                data: data.cert_num,
+                                markPoint: {                  //设置定点的值
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                }
+                            }
+                        ]
+                    };
+                    certificationBar.setOption(certificationOption);
+
+                });
+
+            </script>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="line_div" style="height: 650px"></div>
+            <script type="text/javascript">
+                const hotLine = echarts.init(document.getElementById('line_div'));
+
+                $.post("/groupByScore", function (data) {
+
+                        const hotOption = {
+                            title: {
+                                text: '各个骑行时间的数量',
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 30
+                                },
+                                left: 100
+                            },
+                            legend: {
+                                data: ["骑行时间数量"],
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 20
+                                }
+                            },
+
+
+                            dataZoom: [{
+                                type: 'slider',
+                                show: true, //flase直接隐藏图形
+                                xAxisIndex: [0],
+                                left: '9%', //滚动条靠左侧的百分比
+                                bottom: -5,
+                                start: 0,//滚动条的起始位置
+                                end: 50 //滚动条的截止位置（按比例分割你的柱状图x轴长度）
+                            }],
+
+                            xAxis: {
+                                type: 'category',
+                                boundaryGap: false,               //不设置间距
+                                data: data.score_num,
+                                axisLabel: {
+
+                                    textStyle: {
+                                        show: true,
+                                        color: "white"
+                                    }
+
+                                }
+
+                            },
+                            yAxis: {
+                                type: 'value',
+                                axisLabel: {
+
+                                    textStyle: {
+                                        show: true,
+                                        color: "white"
+                                    }
+
+                                }
+                            },
+                            calculable: 'true',
+                            tooltip: {
+                                trigger: 'axis',
+                                formatter: "骑行时间(min)：{b}, 该时间数量：{c}"
+                            },
+                            //
+                            series: [
+                                {
+                                    name: '骑行时间数量',   // series和legend上面的data的name要对应
+                                    type: 'line',
+                                    smooth: 'true',                       //设置平滑曲线
+                                    itemStyle: {                          //设置阴影
+                                        normal: {areaStyle: {type: 'default'}}
+                                    },
+                                    data: data.score
+
+                                }
+                            ]
+                        };
+                        hotLine.setOption(hotOption);
+                    }
+                )
+
+            </script>
+        </div>
+        <div class="col-md-6">
+            <div id="mapDiv" style="height: 650px"></div>
+            <script type="text/javascript">
+
+                const groupByCountryBar = echarts.init(document.getElementById('mapDiv'));
+                $.post("/groupByCountry", function (data) {
+                    data = data["loc"];
+                    const groupByCountryBarOption = {
+                            title: {
+                                text: '单车位置分布',
+                                subtext: 'mobike',
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 15
+                                }
+                            },
+                            legend: {
+                                data: ["位置分布"]
+                            },
+                            xAxis: [{
+
+                                type: 'value',
+                                scale: true,
+                                axisLabel: {
+                                    show: true,
+                                    formatter: '{value}',
+                                    textStyle: {
+                                        color: "white",
+                                        fontSize: 13
+                                    }
+                                }
+                            }
+                            ],
+                            yAxis: [{
+                                textStyle: {
+                                    color: "white",
+                                    fontSize: 13
+                                },
+                                type: 'value',
+                                scale: true,
+                                axisLabel: {
+                                    show: true,
+                                    formatter: '{value}',
+                                    textStyle: {
+                                        color: "white",
+                                        fontSize: 13
+                                    }
+                                }
+                            }],
+                            tooltip:
+                                {
+                                    trigger: 'axis',
+                                    axisPointer:
+                                        {
+                                            show: true,
+                                            type:
+                                                'cross',
+                                            linesStyle:
+                                                {
+                                                    type: 'dashed',
+                                                    width:
+                                                        1
+                                                }
+                                        }
+                                    ,
+                                    formatter: "（经度,纬度）:({c})"
+
+                                }
+                            ,
+                            series: [{
+                                symbolSize: 6,   // 定义散点的大小
+                                name: '位置分布',
+                                type: 'scatter',
+                                data: data,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+
+                                // markLine: {
+                                //     data: {type: 'average', name: '平均值'}
+                                // }
+                            }
+                            ]
+
+                        }
+                    ;
+
+                    groupByCountryBar.setOption(groupByCountryBarOption);
+
+                });
+
+            </script>
+        </div>
+    </div>
+</div>
+
+<footer id="footer"></footer>
+<script>
+    function stringify(date, format) {
+        if (!date) {
+            return;
+        }
+        const year = date.getFullYear();   //年份
+        const month = date.getMonth() + 1;  //月份
+        const day = date.getDate();   //获取星期
+        const hours = date.getHours();  //获取小时数
+        const min = date.getMinutes();  //获取分钟数
+        const seconds = date.getSeconds();    //获取秒
+
+        return format.replace(/yyyy/g, year)    ///将年份以格式化形式表示
+
+            .replace(/MM/g, ("0" + month).slice(-2))  // slice(-2)   取后面的两位   /g 表示进行全局匹配
+            .replace(/dd/g, ("0" + day).slice(-2))
+            .replace(/hh/g, ("0" + hours).slice(-2))
+            .replace(/ss/g, ("0" + min).slice(-2))
+            .replace(/kk/g, ("0" + seconds).slice(-2))
+            .replace(/yy/g, year)
+            .replace(/M(?!a)/g, month)
+            .replace(/d/g, day);
+    }
+
+    function setCurrentTime(obj) {
+        $(obj).text("系统时间：" + stringify(new Date(), "hh:ss:kk"));
+    }
+
+
+    var current_timer = setInterval("setCurrentTime('.header-info-r-time')", 1000);
+    $(".header-info-r-day-year .header-info-r-year").text(stringify(new Date(), "yyyy-MM-dd"));
+    $(".header-info-r-day-year .header-info-r-day").text("星期" + "日一二三四五六".charAt(new Date().getDay()));      //获取当前星期数
+
+
+    $.get("http://wthrcdn.etouch.cn/weather_mini?city=" + encodeURIComponent("番禺"), function (data) {
+
+        // console.log(data);
+        var data1 = JSON.parse(data);
+        // console.log(data1);
+        if (data1.status === 1000) {
+            var weather = data1.data.forecast[0];
+            var temperature = weather.low.replace(/[^0-9]/ig, "") + "-" + weather.high.replace(/[^0-9]/ig, "") + "°C";    //获取当日的温度
+            $(".header-info-l-weather").text("天气情况：" + weather.type);
+            $(".header-info-l-temperature").text("实时温度：" + temperature);
+            // $(".nav_temperature .nav_left_content_green").html(data.data.wendu + "<span>°C</span>");
+        }
+
+
+    })
+</script>
+
+
+</body>
+</html>

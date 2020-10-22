@@ -1,0 +1,32 @@
+
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>filter</title>
+    </head>
+        <body>
+            <script src="js/d3.min.js" charset="utf-8"></script>
+            <script>
+                var dataset = [ 1,3,4,5,6,7,8 ];
+
+                //添加一个svg画布
+                var svg = d3.select("body").append("svg");
+                var shapes = svg.selectAll(".shapes").data(dataset).enter();
+
+                //d小于5时输出圆形
+                shapes.append("circle")
+                    .filter(function(d){return d < 5;})
+                    .attr("cx",function(d,i){return(i+1)*27;})
+                    .attr("cy",10)
+                    .attr("r",10);
+
+                //d大于5时输出矩形
+                shapes.append("rect")
+                    .filter(function(d){return d >= 5;})
+                    .attr("x",function(d,i){return(i+1)*20;})
+                    .attr("y",25)
+                    .attr("width",10)
+                    .attr("height",10);
+            </script>
+        </body>
+</html>

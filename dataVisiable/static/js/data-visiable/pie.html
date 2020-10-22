@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼图</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            height: 800px;
+            background:#000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths:{
+                echarts:'http://echarts.baidu.com/build/dist'
+            }
+        });
+        require(['echarts', 'echarts/chart/pie'],
+            function (ec){
+                var mychart=ec.init(document.getElementById('main'));
+                var option={
+                    title:{                         //设置标题
+                        text:'某站点用户访问来源',
+                        subtext:'新浪微博',
+                        x:'center'
+                    },
+                    legend:{
+                        // orient:'vertical',
+                        y:'bottom',
+                        // bottom:10,
+                        //设置图例
+                        data:['直接访问', '邮件营销','联盟广告','视频广告','搜索引擎']
+                    },
+
+
+                    series:[
+
+                        {
+                            label: {
+                                normal: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    show: true,
+                                    textStyle: {
+                                        fontSize: '200',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            },
+                            name:'访问来源',
+                            type:'pie',
+                            avoidLabelOverlap: false,
+                            radius:['30%', '50%',],
+                            center:['50%','60%'],
+                            data:[{
+                                value:335, name:'直接访问'
+                            },
+                            {
+                                value:325, name:'邮件营销'
+                            },{
+                                value:215, name:'联盟广告'
+                            },{
+                                value:1335, name:'视频广告'
+                            },{
+                                value:600, name:'搜索引擎'
+                                }
+                            ]
+                        }
+                    ]
+
+                };
+                mychart.setOption(option);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四川地图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            height: 400px;
+            width: 400px;
+            /*background: lightskyblue;*/
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            echarts: 'http://echarts.baidu.com/build/dist'
+        }
+    });
+    require(
+        ['echarts', 'echarts/chart/map'],
+        function (ec){
+            var mychart = ec.init(document.getElementById('main'));
+            var option = {
+                title: {
+                    text: '四川省人口地图',
+                    subtext: '纯属虚构',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                dataRange:{
+                    min: 0,
+                    max: 1000,
+                    x: 'left',
+                    y: 'bottom',
+                    color: ['blue', 'lightskyblue'],
+                    text: ['高', '低'],
+                    calculable: true
+                },
+                series: [
+                    {
+                        name: '人口数量',
+                        type: 'map',
+                        mapType: '四川',
+                        itemStyle: {
+                            normal: {label: {show:true}},
+                            emphasis:{label:{show: true}}
+
+                        },
+                        data:[
+                            {name:'成都市',value: Math.round(Math.random()*1000)},
+                            {name:'自贡市',value: Math.round(Math.random()*1000)},
+                            {name:'攀枝花市',value: Math.round(Math.random()*1000)},
+                            {name:'泸州市',value: Math.round(Math.random()*1000)},
+                            {name:'德阳市',value: Math.round(Math.random()*1000)},
+                            {name:'绵阳市',value: Math.round(Math.random()*1000)},
+                            {name:'广元市',value: Math.round(Math.random()*1000)},
+                            {name:'遂宁市',value: Math.round(Math.random()*1000)},
+                            {name:'内江市',value: Math.round(Math.random()*1000)},
+                            {name:'乐山市',value: Math.round(Math.random()*1000)},
+                            {name:'南充市',value: Math.round(Math.random()*1000)},
+                            {name:'眉山市',value: Math.round(Math.random()*1000)},
+                            {name:'宜宾市',value: Math.round(Math.random()*1000)},
+                            {name:'广安市',value: Math.round(Math.random()*1000)},
+                            {name:'达州市',value: Math.round(Math.random()*1000)},
+                            {name:'雅安市',value: Math.round(Math.random()*1000)},
+                            {name:'巴中市',value: Math.round(Math.random()*1000)},
+                            {name:'资阳市',value: Math.round(Math.random()*1000)},
+                            {name:'泸州市',value: Math.round(Math.random()*1000)},
+                            {name:'凉山彝族自治州',value: Math.round(Math.random()*1000)},
+                            {name:'甘孜藏族自治州',value: Math.round(Math.random()*1000)},
+                            {name:'阿坝藏族羌族自治州',value: Math.round(Math.random()*1000)},
+
+                        ]
+                    }
+                ]
+            };
+            mychart.setOption(option);
+        }
+
+    );
+</script>
+</body>
+</html>

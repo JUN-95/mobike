@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条形图</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            height: 400px;
+            background:#000000;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+  require.config({
+    paths:{
+      echarts:'http://echarts.baidu.com/build/dist'
+    }
+  });
+  require(['echarts', 'echarts/chart/bar'],
+    function (ec){
+      var mychart=ec.init(document.getElementById('main'));
+      var option={
+        title:{                         //设置标题
+          text:'未来一周的天气变化',
+          subtext:'广东省气象局'
+        },
+        legend:{                      //设置图例
+          data:['最高气温', '最低气温']
+        },
+        xAxis:[{
+          type:'category',
+          data:['星期一','星期二','星期三','星期四','星期五','星期六']
+        }],
+        yAxis:[{
+          type:'value'
+        }],
+        calculable:'true',
+        tooltip:{trigger:'axis'},
+        series:[
+          {
+            name:'最低气温',
+            type:'bar',
+            stack:'总量',
+
+            data:[15, 12, 11, 15, 10, 16],
+            markPoint: {                  //设置定点的值
+              data: [
+                {type: 'max', name: '最大值'},
+                {type: 'min', name: '最小值'}
+              ]
+            }
+          },
+          {
+            name:'最高气温',
+            type:'bar',
+            stack:'总量',
+
+            data:[-25, 22, 23, 27, 21, 23],
+            markPoint: {                               //设置定点的值
+              data: [
+                {type: 'max', name: '最大值'},
+                {type: 'min', name: '最小值'}
+              ]
+            }
+          }
+        ]
+
+      };
+      mychart.setOption(option);
+    });
+</script>
+</body>
+</html>
