@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前端基础复习</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .a{
+            
+        }
+        #b li{
+            list-style-type: none;
+            /*float: left;*/
+            /*display: inline;*/
+            float: left;
+            /*display:inline-block;*/
+        }
+        #c div{
+            float: left;
+        }
+        #d{
+            background: blue;
+            width: 80px;
+            height: 60px;
+        }
+        #c #d{
+            background: aqua !important;     //权限比id高
+        }
+        .e{
+             background: red;
+             width: 80px;
+             height: 60px;
+         }
+        .f{
+              background: yellow;
+              width: 80px;
+              height: 60px;
+          }
+    </style>
+    <script>
+        function click123(){
+            var f = document.getElementById('')
+
+            // alert('弹出窗口');
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul id="b">
+            <li>html</li>
+            <li>css</li>
+            <li>JavaScript</li>
+        </ul>
+    </nav>
+    <div id="c">
+        <div id="d">1</div>
+        <div class="e">2</div>
+        <div class="f">3</div>
+    </div>
+    <form action="" >
+        <input type="text" placeholder="请输入用户名" required/>
+        <input type="password" placeholder="请输入密码" required/>
+        <input type="submit" value="提交">
+    </form>
+
+    <button onclick="click123()">点击</button>
+    <input type="checkbox" value="man"/>
+    <input type="checkbox" value="women"/>
+
+
+</body>
+</html>

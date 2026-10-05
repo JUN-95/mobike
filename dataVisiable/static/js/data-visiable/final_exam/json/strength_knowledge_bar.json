@@ -1,0 +1,56 @@
+{
+  "status": 200,
+  "message": "ok",
+  "data": [
+    {
+      "absolutely": 100.0,
+      "rightNumber": 0,
+      "errorNumber": 0,
+      "totalNumber": 0,
+      "studentId": 0,
+      "subjectId": 0,
+      "subjectName": "数据可视化技术",
+      "chapterId": 0,
+      "chapterName": null,
+      "knowledge": null
+    },
+    {
+      "absolutely": 100.0,
+      "rightNumber": 0,
+      "errorNumber": 0,
+      "totalNumber": 0,
+      "studentId": 0,
+      "subjectId": 0,
+      "subjectName": "统计方法及R语言",
+      "chapterId": 0,
+      "chapterName": null,
+      "knowledge": null
+    },
+    {
+      "absolutely": 92.33,
+      "rightNumber": 0,
+      "errorNumber": 0,
+      "totalNumber": 0,
+      "studentId": 0,
+      "subjectId": 0,
+      "subjectName": "Spark大数据技术",
+      "chapterId": 0,
+      "chapterName": null,
+      "knowledge": null
+    },
+    {
+      "absolutely": 35.66,
+      "rightNumber": 0,
+      "errorNumber": 0,
+      "totalNumber": 0,
+      "studentId": 0,
+      "subjectId": 0,
+      "subjectName": "Hadoop平台",
+      "chapterId": 0,
+      "chapterName": null,
+      "knowledge": null
+    }
+  ],
+  "accessToken": null,
+  "pageInfo": null
+}

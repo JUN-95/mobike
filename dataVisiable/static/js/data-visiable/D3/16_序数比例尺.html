@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>序数比例尺</title>
+    </head>
+    <body>
+        <script src="js/d3.min.js" charset="utf-8"></script>
+    </body>
+    <script>
+        var index=[0,1,2,3,4];
+        var color=["red","blue","green","yellow","black"];
+        var ordinal=d3.scale.ordinal()
+                      .domain(index)
+                      .range(color);
+        alert("ordinal(0):"+ordinal(0));    ////返回 red
+        alert("ordinal(2):"+ordinal(2));    //返回 green
+        alert("ordinal(4):"+ordinal(4));    //返回 black
+    </script>
+</html>

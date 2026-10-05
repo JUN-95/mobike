@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tree</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            height: 700px;
+            width: 800px;
+        }
+    </style>
+
+    <script type="text/javascript" src="lib/js/jq.js"></script>
+    <script type="text/javascript" src="lib/js/echarts.js"></script>
+
+
+</head>
+<body>
+<div id="main"></div>
+<!--<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>-->
+<script type="text/javascript">
+
+  var mychart = echarts.init(document.getElementById('main'))
+  mychart.showLoading()
+  $.get('data/city.json', function (data) {
+    mychart.hideLoading()
+
+    echarts.util.each(data.children, function (datum, index) {
+      index % 2 === 0 && (datum.collapsed = true)
+    })
+
+    mychart.setOption(option = {
+      tooltip: {
+        trigger: 'item',
+        triggerOn: 'mousemove',
+      },
+      series: [
+        {
+          type: 'tree',
+
+          data: [data],
+
+          top: '1%',
+          left: '7%',
+          bottom: '1%',
+          right: '20%',
+
+          symbolSize: 15,   //节点的大小
+
+          label: {
+            position: 'left',
+            verticalAlign: 'middle',
+            align: 'right',
+            fontSize: 20
+          },
+
+          leaves: {
+            label: {
+              position: 'right',
+              verticalAlign: 'middle',
+              align: 'left'
+            }
+          },
+
+          expandAndCollapse: true,
+          animationDuration: 550,
+          animationDurationUpdate: 750
+        }
+      ]
+    })
+
+  })
+</script>
+</body>
+</html>

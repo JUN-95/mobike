@@ -1,0 +1,21 @@
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.ipynb_checkpoints/
+
+# 数据集
+data/
+*.csv
+*.xlsx
+*.parquet
+
+# 环境文件
+.env
+venv/
+.venv/
+
+# IDE
+.idea/
+.vscode/

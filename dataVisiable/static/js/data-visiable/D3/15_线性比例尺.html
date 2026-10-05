@@ -1,0 +1,20 @@
+<html>  
+<head>  
+    <meta charset="utf-8">  
+    <title>线性比例尺</title>  
+</head> 
+<body>
+<script src="js/d3.min.js" charset="utf-8"></script>
+<script>
+//将 dataset 中最小的值，映射成 0；将最大的值，映射成 300。
+    var dataset=[1.2 , 2.3 , 0.9 , 1.5 , 3.3];
+
+    var min=d3.min(dataset);
+    var max=d3.max(dataset);
+    var linear=d3.scale.linear().domain([min,max]).range([0,300]);
+    alert("linear(0.9):"+linear(0.9));
+    alert("linear(2.3):"+linear(2.3));
+    alert("linear(3.3):"+linear(3.3));
+</script>
+</body>
+</html>

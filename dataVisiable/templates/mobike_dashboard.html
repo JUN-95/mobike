@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobike 上海骑行分析大屏</title>
+  <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+  <style>
+    :root { --bg:#071426; --panel:#0c2038; --line:#1d4163; --ink:#e9f5ff; --muted:#8eafc9; --blue:#25b8ff; --cyan:#38e2c0; --yellow:#ffcc66; --red:#ff6b81; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-width:320px; background:radial-gradient(circle at 50% -20%,#133c63 0,#071426 47%); color:var(--ink); font-family:"Microsoft YaHei",Arial,sans-serif; }
+    .dashboard { max-width:1920px; min-height:100vh; margin:auto; padding:22px; }
+    header { display:flex; justify-content:space-between; align-items:end; border-bottom:1px solid var(--line); padding:0 4px 16px; }
+    h1 { margin:0; font-size:clamp(22px,2.2vw,38px); letter-spacing:.08em; } .subtitle { color:var(--muted); margin-top:7px; font-size:14px; } .updated { color:var(--cyan); font-size:14px; }
+    .metrics { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin:18px 0; }
+    .metric, .panel { background:linear-gradient(135deg,rgba(17,52,84,.92),rgba(8,28,49,.92)); border:1px solid var(--line); box-shadow:inset 0 0 28px rgba(37,184,255,.04); }
+    .metric { min-height:94px; padding:16px 18px; } .metric b { display:block; color:var(--blue); font-size:clamp(21px,2vw,31px); margin-top:7px; } .metric span { color:var(--muted); font-size:13px; }
+    .main-grid { display:grid; grid-template-columns:1fr 1.35fr 1fr; gap:14px; } .panel { min-height:285px; padding:8px; } .panel h2 { font-size:15px; margin:4px 8px; font-weight:400; color:#cde9ff; } .chart { width:100%; height:245px; }
+    .map-panel { grid-column:span 2; } .map-panel .chart { height:420px; } .cluster-panel .chart { height:420px; }
+    .error { display:none; margin:18px 0; padding:14px; color:#ffd3d9; background:#4d1f31; border:1px solid var(--red); }
+    @media (max-width:1050px) { .metrics { grid-template-columns:repeat(3,1fr); } .main-grid { grid-template-columns:1fr 1fr; } .map-panel { grid-column:span 1; } }
+    @media (max-width:680px) { .dashboard { padding:12px; } header { align-items:start; flex-direction:column; gap:8px; } .metrics,.main-grid { grid-template-columns:1fr; } .metric { min-height:74px; } .map-panel .chart,.cluster-panel .chart { height:320px; } }
+  </style>
+</head>
+<body>
+  <main class="dashboard">
+    <header><div><h1>Mobike 上海骑行分析大屏</h1><div class="subtitle">基于骑行时长、距离与停车位置聚类数据</div></div><div id="updated" class="updated"></div></header>
+    <div id="error" class="error" role="alert"></div>
+    <section class="metrics" aria-label="核心指标">
+      <div class="metric"><span>骑行订单</span><b id="rides">—</b></div><div class="metric"><span>平均骑行时长</span><b id="durationMetric">—</b></div><div class="metric"><span>平均骑行距离</span><b id="distanceMetric">—</b></div><div class="metric"><span>高峰时段订单占比</span><b id="rushMetric">—</b></div><div class="metric"><span>DBSCAN 噪声点</span><b id="noiseMetric">—</b></div>
+    </section>
+    <section class="main-grid">
+      <article class="panel"><h2>24 小时骑行订单分布</h2><div id="hourly" class="chart"></div></article>
+      <article class="panel"><h2>骑行时长分布（截取 P99）</h2><div id="duration" class="chart"></div></article>
+      <article class="panel"><h2>骑行距离分布（截取 P99）</h2><div id="distance" class="chart"></div></article>
+      <article class="panel map-panel"><h2>结束位置与停车中心（随机展示最多 8,000 个点）</h2><div id="map" class="chart"></div></article>
+      <article class="panel cluster-panel"><h2>规模最大的 12 个 DBSCAN 停车簇</h2><div id="clusters" class="chart"></div></article>
+    </section>
+  </main>
+  <script>
+    const charts = ['hourly','duration','distance','map','clusters'].map(id => echarts.init(document.getElementById(id)));
+    const theme = { textStyle:{color:'#cde9ff'}, tooltip:{backgroundColor:'#102c48',borderColor:'#2a6188',textStyle:{color:'#fff'}}, grid:{left:52,right:18,top:26,bottom:40}, xAxis:{axisLine:{lineStyle:{color:'#42708f'}},axisLabel:{color:'#9cc1da'}}, yAxis:{axisLine:{lineStyle:{color:'#42708f'}},splitLine:{lineStyle:{color:'rgba(94,145,178,.18)'}},axisLabel:{color:'#9cc1da'}} };
+    const bar = (labels,values,color,unit) => ({...theme,tooltip:{...theme.tooltip,trigger:'axis',formatter:p=>`${p[0].axisValue}<br/>订单：${p[0].value.toLocaleString()} ${unit||''}`},xAxis:{...theme.xAxis,type:'category',data:labels,axisLabel:{color:'#9cc1da',rotate:labels.length>18?38:0}},yAxis:{...theme.yAxis,type:'value'},series:[{type:'bar',data:values,itemStyle:{color},barMaxWidth:20}]});
+    async function load() {
+      const response = await fetch('{{ url_for("dashboard_data") }}'); const data = await response.json(); if (!response.ok) throw new Error(data.error || '数据加载失败');
+      const m=data.metrics; document.getElementById('rides').textContent=m.rides.toLocaleString(); document.getElementById('durationMetric').textContent=`${m.averageDuration} 分钟`; document.getElementById('distanceMetric').textContent=`${m.averageDistance} 公里`; document.getElementById('rushMetric').textContent=`${m.rushShare}%`; document.getElementById('noiseMetric').textContent=m.noiseCount.toLocaleString();
+      charts[0].setOption(bar(data.hourly.labels,data.hourly.values,'#25b8ff','')); charts[1].setOption(bar(data.duration.labels,data.duration.values,'#38e2c0',data.duration.unit)); charts[2].setOption(bar(data.distance.labels,data.distance.values,'#ffcc66',data.distance.unit));
+      charts[3].setOption({...theme,tooltip:{...theme.tooltip,trigger:'item',formatter:p=>p.seriesName==='停车中心'?`中心点<br/>经度：${p.value[0]}<br/>纬度：${p.value[1]}<br/>规模：${p.value[2]}`:`经度：${p.value[0]}<br/>纬度：${p.value[1]}<br/>DBSCAN：${p.value[2]}`},xAxis:{...theme.xAxis,type:'value',scale:true,name:'经度',nameTextStyle:{color:'#9cc1da'}},yAxis:{...theme.yAxis,type:'value',scale:true,name:'纬度',nameTextStyle:{color:'#9cc1da'}},series:[{name:'结束位置',type:'scatter',data:data.points,symbolSize:3,progressive:4000,itemStyle:{color:'#25b8ff',opacity:.35}},{name:'停车中心',type:'scatter',data:data.centers,symbol:'diamond',symbolSize:10,itemStyle:{color:'#ffcc66'}}]});
+      charts[4].setOption({...theme,tooltip:{...theme.tooltip,trigger:'axis'},grid:{left:58,right:22,top:20,bottom:28},xAxis:{...theme.xAxis,type:'value'},yAxis:{...theme.yAxis,type:'category',data:data.clusters.labels},series:[{type:'bar',data:data.clusters.values,itemStyle:{color:'#ff6b81'}}]});
+      document.getElementById('updated').textContent=`数据加载时间：${new Date().toLocaleString('zh-CN')}`;
+    }
+    load().catch(error=>{const e=document.getElementById('error');e.textContent=`无法加载大屏数据：${error.message}`;e.style.display='block';}); window.addEventListener('resize',()=>charts.forEach(chart=>chart.resize()));
+  </script>
+</body>
+</html>

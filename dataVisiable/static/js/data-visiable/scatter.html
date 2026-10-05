@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>散点图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 800px;
+            height: 400px;
+
+        }
+    </style>
+
+</head>
+<body>
+<div id="main">
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+      require.config({
+        paths: {
+          echarts: 'http://echarts.baidu.com/build/dist'
+        }
+      })
+      require(['echarts', 'echarts/chart/scatter'],
+        function (ec) {
+          let mychart = ec.init(document.getElementById('main'))
+          let option = {
+            title: {
+              text: '男女身高体重分布',
+              subtext: '纯属虚构'
+            },
+            legend: {
+              data: ['男生', '女生']
+            },
+            xAxis: [{
+              type: 'value',
+              scale: true,
+              axisLabel: {
+                formatter: '{value}cm'
+              }
+            }],
+            yAxis: [{
+              type: 'value',
+              scale: true,
+              axisLabel: {
+                formatter: '{value}kg'
+              }
+            }],
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                show: true,
+                type: 'cross',
+                linesStyle: {
+                  type: 'dashed',
+                  width: 1
+                }
+              }
+            },
+            series: [{
+              symbolSize: 6,   // 定义散点的大小
+              name: '女生',
+              type: 'scatter',
+              data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
+                [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],
+                [172.5, 55.2], [170.9, 54.2], [172.9, 62.5], [153.4, 42.0], [160.0, 50.0],
+                [147.2, 49.8], [168.2, 49.2]],
+              markPoint: {
+                data: [
+                  {type: 'max', name: '最大值'},
+                  {type: 'min', name: '最小值'}
+                ]
+              },
+
+              markLine: {
+                data: {type: 'average', name: '平均值'}
+              },
+
+            },
+              {
+                symbolSize: 6,   // 定义散点的大小
+                name: '男生',
+                type: 'scatter',
+                data: [[174.0, 65.6], [175.3, 71.8], [193.5, 80.7], [186.5, 72.6], [187.2, 78.8],
+                  [181.5, 74.8], [184.0, 86.4], [184.5, 78.4], [175.0, 62.0], [184.0, 81.6],
+                  [180.0, 76.6], [177.8, 83.6], [192.0, 90.0], [176.0, 74.6], [174.0, 71.0],
+                  [184.0, 79.6], [192.7, 93.8]],
+
+                markPoint: {
+                  data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                  ]
+                },
+                markLine: {
+                  data: {type: 'average', name: '平均值'}
+                }
+              }
+            ]
+
+          }
+          mychart.setOption(option)
+        }
+      )
+
+
+
+
+    </script>
+</div>
+</body>
+</html>
